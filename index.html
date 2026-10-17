@@ -1177,6 +1177,7 @@
           padding: 0 10px;
         }
         #page-readings .rd-thumb {
+          position: relative;
           flex: 0 0 210px;
           width: 210px;
           aspect-ratio: 1 / 1;
@@ -1217,6 +1218,7 @@
           text-align: left;
         }
         #page-readings .rd-meta {
+          margin-top: 6px;
           display: flex;
           align-items: center;
           gap: 14px;
@@ -1228,6 +1230,12 @@
           font-weight: 600;
           font-size: 1.9rem;
           line-height: 1;
+        }
+        #page-readings .rd-thumb .rd-stars {
+          position: absolute;
+          bottom: 8px;
+          left: 8px;
+          z-index: 2;
         }
         #page-readings .rd-stars {
           display: inline-flex;
@@ -1251,7 +1259,7 @@
           margin-top: 6px;
           padding: 15px 24px;
           border: 1px solid #f2d995;
-          border-radius: 50px;
+          border-radius: 8px;
           background: linear-gradient(135deg, #caa85b, #efd38d 46%, #b78f41);
           color: #122c23;
           font-family: var(--rd-display);
@@ -1276,11 +1284,13 @@
             gap: 16px;
             align-items: flex-start;
           }
-          #page-readings .rd-thumb { flex: none; width: 38%; max-width: 140px; aspect-ratio: 4/5; }
+          #page-readings .rd-thumb {
+          position: relative; flex: none; width: 38%; max-width: 140px; aspect-ratio: 4/5; }
           #page-readings .rd-body { align-items: flex-start; flex: 1; min-width: 0; }
           #page-readings .rd-title { font-size: 1.15rem; }
           #page-readings .rd-desc { text-align: left; font-size: .85rem; }
-          #page-readings .rd-meta { justify-content: flex-start; }
+          #page-readings .rd-meta {
+          margin-top: 6px; justify-content: flex-start; }
           #page-readings .rd-btn { white-space: nowrap; font-size: .78rem; padding: 12px 14px; max-width: 100%; display: inline-block; }
           #page-readings .rd-hero-face { width: min(300px, 62%); height: 72%; opacity: .7; }
           #page-readings .rd-hero-inner { padding: 44px 20px 52px; }
@@ -1398,11 +1408,11 @@
       </style>
 
       <div class="rd-listing">
+        <div style="text-align: center; padding: 20px 20px 12px; background: #061c17;">
+          <span style="color: #d7b66c; text-transform: uppercase; letter-spacing: .22em; font-size: .82rem; font-weight: 600;">Personal Video Tarot Readings</span>
+        </div>
         <div class="rd-top-banner" style="margin: 0; padding: 0;">
           <img src="assets/banners/top-banner-liny-dee.png" alt="Liny Dee Tarot" style="width: 100%; height: auto; display: block;">
-        </div>
-        <div style="text-align: center; padding: 10px 20px 2px; margin-top: -4px;">
-          <span style="color: #d7b66c; text-transform: uppercase; letter-spacing: .22em; font-size: .82rem; font-weight: 600;">Personal Video Tarot Readings</span>
         </div>
         <div class="rd-shell">
           
@@ -1410,13 +1420,13 @@
             <article class="rd-card">
               <div class="rd-thumb">
                 <img src="assets/banners/thumb-2-question.jpg" alt="2 Question Tarot" loading="lazy" />
+                <span class="rd-stars">★ 5.0</span>
               </div>
               <div class="rd-body">
                 <h3 class="rd-title">2 Question Reading</h3>
                 <p class="rd-desc">Have 2 Tarot Questions sent to you in a video reading Delivered To You Within 24 Hours!</p>
                 <div class="rd-meta">
                   <span class="rd-price">$20</span>
-                  <span class="rd-stars">★ 5.0</span>
                 </div>
                 <button class="rd-btn" type="button" onclick="showReadingDetail('2-question')">View Details &amp; Order Reading! <span class="rd-arrow" aria-hidden="true">›</span></button>
               </div>
@@ -1424,13 +1434,13 @@
             <article class="rd-card">
               <div class="rd-thumb">
                 <img src="assets/banners/thumb-5-question.jpg" alt="5 Question Tarot" loading="lazy" />
+                <span class="rd-stars">★ 5.0</span>
               </div>
               <div class="rd-body">
                 <h3 class="rd-title">5 Question Reading</h3>
                 <p class="rd-desc">You Can Send Me 1 to 5 Tarot Questions and I Will Send You A Video Tarot Reading With The Answer!</p>
                 <div class="rd-meta">
                   <span class="rd-price">$75</span>
-                  <span class="rd-stars">★ 5.0</span>
                 </div>
                 <button class="rd-btn" type="button" onclick="showReadingDetail('5-question')">View Details &amp; Order Reading! <span class="rd-arrow" aria-hidden="true">›</span></button>
               </div>
@@ -1438,13 +1448,13 @@
             <article class="rd-card">
               <div class="rd-thumb">
                 <img src="assets/banners/thumb-full-month.jpg" alt="Full Month Tarot" loading="lazy" />
+                <span class="rd-stars">★ 5.0</span>
               </div>
               <div class="rd-body">
                 <h3 class="rd-title">Full Month Reading</h3>
                 <p class="rd-desc">Get A Tarot Reading To See What Will Happen in Every Week of This Month, or Any Month You Choose!</p>
                 <div class="rd-meta">
                   <span class="rd-price">$45</span>
-                  <span class="rd-stars">★ 5.0</span>
                 </div>
                 <button class="rd-btn" type="button" onclick="showReadingDetail('full-month')">View Details &amp; Order Reading! <span class="rd-arrow" aria-hidden="true">›</span></button>
               </div>
@@ -1452,13 +1462,13 @@
             <article class="rd-card">
               <div class="rd-thumb">
                 <img src="assets/banners/thumb-6-month.jpg" alt="6 Month Tarot" loading="lazy" />
+                <span class="rd-stars">★ 5.0</span>
               </div>
               <div class="rd-body">
                 <h3 class="rd-title">6 Month Reading</h3>
                 <p class="rd-desc">Receive a Tarot Reading To Learn About What Will Happen In Every Month of Your Next 6 Months!</p>
                 <div class="rd-meta">
                   <span class="rd-price">$75</span>
-                  <span class="rd-stars">★ 5.0</span>
                 </div>
                 <button class="rd-btn" type="button" onclick="showReadingDetail('6-month')">View Details &amp; Order Reading! <span class="rd-arrow" aria-hidden="true">›</span></button>
               </div>
@@ -1466,13 +1476,13 @@
             <article class="rd-card">
               <div class="rd-thumb">
                 <img src="assets/banners/thumb-12-month.jpg" alt="12 Month Tarot" loading="lazy" />
+                <span class="rd-stars">★ 5.0</span>
               </div>
               <div class="rd-body">
                 <h3 class="rd-title">12 Month Reading</h3>
                 <p class="rd-desc">YES! I Can Do a Video Reading Showing You Every Month In Your Year! Get A Yearly Tarot Reading Now!</p>
                 <div class="rd-meta">
                   <span class="rd-price">$120</span>
-                  <span class="rd-stars">★ 5.0</span>
                 </div>
                 <button class="rd-btn" type="button" onclick="showReadingDetail('12-month')">View Details &amp; Order Reading! <span class="rd-arrow" aria-hidden="true">›</span></button>
               </div>
