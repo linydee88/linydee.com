@@ -1021,42 +1021,237 @@
     </section>
 
     <section class="internal-page page-view" id="page-readings" hidden aria-labelledby="readings-title">
-      <header class="page-hero">
+      <style>
+        #page-readings .readings-hero {
+          text-align: center;
+          padding: 40px 20px 24px;
+        }
+        #page-readings .readings-hero .eyebrow {
+          color: #d7b66c;
+          text-transform: uppercase;
+          letter-spacing: .18em;
+          font-size: .8rem;
+          margin-bottom: 10px;
+        }
+        #page-readings .readings-hero h1 {
+          font-family: "Cormorant Garamond", Georgia, serif;
+          color: #f7efd9;
+          font-size: clamp(2rem, 6vw, 3rem);
+          margin: 0 0 12px;
+        }
+        #page-readings .readings-hero p {
+          color: #c6c0aa;
+          max-width: 600px;
+          margin: 0 auto;
+        }
+        #page-readings .reading-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 24px;
+          padding: 24px 20px;
+          max-width: 1100px;
+          margin: 0 auto;
+        }
+        #page-readings .reading-card {
+          background: #0b2b22;
+          border: 1px solid rgba(210,177,99,.34);
+          outline: 1px solid rgba(232,200,124,.15);
+          outline-offset: 4px;
+          border-radius: 5px;
+          padding: 28px 24px;
+          text-align: center;
+          position: relative;
+          box-shadow: 0 8px 32px rgba(0,0,0,.4);
+        }
+        #page-readings .reading-card::before {
+          content: "º6";
+          position: absolute;
+          top: -12px;
+          left: 50%;
+          transform: translateX(-50%);
+          color: #d7b66c;
+          font-size: 18px;
+          background: #0b2b22;
+          padding: 0 8px;
+        }
+        #page-readings .reading-card h3 {
+          font-family: "Cormorant Garamond", Georgia, serif;
+          color: #f1d58d;
+          font-size: 1.5rem;
+          margin: 0 0 8px;
+        }
+        #page-readings .reading-card .reading-desc {
+          background: #f6e7bd;
+          color: #2e2410;
+          border-top: 1px solid rgba(210,177,99,.5);
+          border-bottom: 1px solid rgba(210,177,99,.5);
+          padding: 14px 16px;
+          margin: 16px -24px;
+          font-size: .95rem;
+          line-height: 1.5;
+        }
+        #page-readings .reading-card .reading-price {
+          font-family: "Cormorant Garamond", Georgia, serif;
+          color: #f1d58d;
+          font-size: 2rem;
+          margin: 12px 0 4px;
+        }
+        #page-readings .reading-card .reading-delivery {
+          color: #c6c0aa;
+          font-size: .85rem;
+          margin-bottom: 18px;
+        }
+        #page-readings .reading-card .button {
+          display: inline-block;
+          background: linear-gradient(135deg, #caa85b, #efd38d 46%, #b78f41);
+          border: 1px solid #f2d995;
+          color: #122c23;
+          font-weight: 700;
+          padding: 14px 28px;
+          border-radius: 4px;
+          text-decoration: none;
+          cursor: pointer;
+          font-size: 1rem;
+        }
+        #page-readings .reading-detail {
+          display: none;
+          background: #0b2b22;
+          border: 1px solid rgba(210,177,99,.34);
+          border-radius: 5px;
+          padding: 32px 28px;
+          margin: 24px auto;
+          max-width: 700px;
+          text-align: center;
+        }
+        #page-readings .reading-detail.active {
+          display: block;
+        }
+        #page-readings .reading-detail h3 {
+          font-family: "Cormorant Garamond", Georgia, serif;
+          color: #f1d58d;
+          font-size: 1.8rem;
+          margin: 0 0 12px;
+        }
+        #page-readings .reading-detail .detail-desc {
+          background: #f6e7bd;
+          color: #2e2410;
+          padding: 20px;
+          border-radius: 4px;
+          margin: 16px 0;
+          text-align: left;
+          line-height: 1.6;
+        }
+        #page-readings .reading-detail .button {
+          display: inline-block;
+          background: linear-gradient(135deg, #caa85b, #efd38d 46%, #b78f41);
+          border: 1px solid #f2d995;
+          color: #122c23;
+          font-weight: 700;
+          padding: 16px 36px;
+          border-radius: 4px;
+          text-decoration: none;
+          font-size: 1.1rem;
+          margin-top: 12px;
+        }
+        #page-readings .reading-detail .back-link {
+          display: inline-block;
+          color: #d7b66c;
+          margin-top: 16px;
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      </style>
+      <div class="readings-hero">
         <p class="eyebrow">Types of Tarot Readings</p>
         <h1 id="readings-title">Choose the shape of your reading</h1>
         <p>Every option is delivered as a private video reading, with the cards shown clearly as Liny walks through your questions.</p>
-      </header>
+      </div>
       <div class="page-content">
         <a class="route-back" href="#/home">Back to home</a>
-        <p class="intro-copy">Choose a focused question reading, look at the weeks ahead, or open a longer window across several months.</p>
-        <div class="reading-grid">
-          <article class="reading-card">
-            <div><h3>Two Question Tarot</h3><p>Bring two clear questions for a focused private reading.</p></div>
-            <div class="reading-order"><div class="reading-meta"><span>$20</span><span>Delivered to you within 24 hours</span></div><a class="button" href="https://buy.stripe.com/7sYcN52Xb42Y4Iufvzfbq00" target="_blank" rel="noopener noreferrer">More Info</a></div>
+        <div class="reading-grid" id="reading-grid">
+          <article class="reading-card" data-product="2question">
+            <h3>Two Question Tarot</h3>
+            <div class="reading-desc">Have 2 Tarot Questions sent to you in a video reading delivered to you within 24 hours!</div>
+            <div class="reading-price">$20</div>
+            <div class="reading-delivery">Delivered within 24 hours</div>
+            <a class="button" onclick="showReadingDetail('2question')">Click to see details</a>
           </article>
-          <article class="reading-card">
-            <div><h3>Full Month Tarot Reading</h3><p>A week-by-week look across one full month.</p></div>
-            <div class="reading-order"><div class="reading-meta"><span>$45</span><span>Delivered to you within 48 hours</span></div><a class="button" href="https://buy.stripe.com/8x27sL7drfLG5Mycjnfbq03" target="_blank" rel="noopener noreferrer">More Info</a></div>
+          <article class="reading-card" data-product="5question">
+            <h3>5 Question Tarot</h3>
+            <div class="reading-desc">Send 1 to 5 Tarot Questions and receive a video tarot reading with the answers!</div>
+            <div class="reading-price">$75</div>
+            <div class="reading-delivery">Delivered within 48 hours</div>
+            <a class="button" onclick="showReadingDetail('5question')">Click to see details</a>
           </article>
-          <article class="reading-card">
-            <div><h3>In-Depth 5 Question Tarot Reading</h3><p>Ask between one and five questions for a more detailed session.</p></div>
-            <div class="reading-order"><div class="reading-meta"><span>$75</span><span>Delivered to you within 48 hours</span></div><a class="button" href="https://buy.stripe.com/dRm8wPapDeHC1wi6Z3fbq01" target="_blank" rel="noopener noreferrer">More Info</a></div>
+          <article class="reading-card" data-product="fullmonth">
+            <h3>Full Month Tarot</h3>
+            <div class="reading-desc">See what will happen in every week of this month, or any month you choose!</div>
+            <div class="reading-price">$45</div>
+            <div class="reading-delivery">Delivered within 48 hours</div>
+            <a class="button" onclick="showReadingDetail('fullmonth')">Click to see details</a>
           </article>
-          <article class="reading-card">
-            <div><h3>6 Month Tarot Reading</h3><p>A month-by-month view of the next six months.</p></div>
-            <div class="reading-order"><div class="reading-meta"><span>$75</span><span>Delivered to you within 72 hours</span></div><a class="button" href="https://buy.stripe.com/bJe3cv9lz0QM0se97bfbq02" target="_blank" rel="noopener noreferrer">More Info</a></div>
+          <article class="reading-card" data-product="6month">
+            <h3>6 Month Tarot</h3>
+            <div class="reading-desc">Learn about what will happen in every month of your next 6 months!</div>
+            <div class="reading-price">$75</div>
+            <div class="reading-delivery">Delivered within 72 hours</div>
+            <a class="button" onclick="showReadingDetail('6month')">Click to see details</a>
           </article>
-          <article class="reading-card">
-            <div><h3>12 Month Tarot Reading</h3><p>A full year read, moving through each month in order.</p></div>
-            <div class="reading-order"><div class="reading-meta"><span>$120</span><span>Delivered to you within 72 hours</span></div><a class="button" href="https://buy.stripe.com/cNi3cvfJX5722Ambfjfbq04" target="_blank" rel="noopener noreferrer">More Info</a></div>
+          <article class="reading-card" data-product="12month">
+            <h3>12 Month Tarot</h3>
+            <div class="reading-desc">A video reading showing you every month in your year!</div>
+            <div class="reading-price">$120</div>
+            <div class="reading-delivery">Delivered within 72 hours</div>
+            <a class="button" onclick="showReadingDetail('12month')">Click to see details</a>
           </article>
         </div>
-        <div class="info-panel" style="margin-top: 28px; text-align: center;">
-          <h2>Ready to order?</h2>
-          <p>Choose your reading securely through Liny’s storefront. Canadian clients can email about the five-question e-transfer rate.</p>
-          <a class="button" href="#/readings" target="_blank" rel="noopener noreferrer">Order a tarot reading</a>
+        <div class="reading-detail" id="detail-2question">
+          <h3>Two Question Tarot Reading - $20</h3>
+          <div class="detail-desc">Have 2 Tarot Questions sent to you in a video reading delivered to you within 24 hours! This is a personal video reading where Liny answers your two questions with the cards shown clearly on screen.<br><br><strong>Before you order:</strong> You must be 18 or older. Tarot readings are for entertainment purposes only.</div>
+          <a class="button" href="https://buy.stripe.com/7sYcN52Xb42Y4Iufvzfbq00" target="_blank" rel="noopener noreferrer">Click to check out</a><br>
+          <a class="back-link" onclick="hideReadingDetails()">Back to readings</a>
+        </div>
+        <div class="reading-detail" id="detail-5question">
+          <h3>5 Question Tarot Reading - $75</h3>
+          <div class="detail-desc">You can send 1 to 5 Tarot Questions and Liny will send you a video tarot reading with the answers! A deeper session for when you have several things on your mind.<br><br><strong>Before you order:</strong> You must be 18 or older. Tarot readings are for entertainment purposes only.</div>
+          <a class="button" href="https://buy.stripe.com/dRm8wPapDeHC1wi6Z3fbq01" target="_blank" rel="noopener noreferrer">Click to check out</a><br>
+          <a class="back-link" onclick="hideReadingDetails()">Back to readings</a>
+        </div>
+        <div class="reading-detail" id="detail-fullmonth">
+          <h3>Full Month Tarot Reading - $45</h3>
+          <div class="detail-desc">Get a tarot reading to see what will happen in every week of this month, or any month you choose! A week-by-week breakdown of the energies ahead.<br><br><strong>Before you order:</strong> You must be 18 or older. Tarot readings are for entertainment purposes only.</div>
+          <a class="button" href="https://buy.stripe.com/8x27sL7drfLG5Mycjnfbq03" target="_blank" rel="noopener noreferrer">Click to check out</a><br>
+          <a class="back-link" onclick="hideReadingDetails()">Back to readings</a>
+        </div>
+        <div class="reading-detail" id="detail-6month">
+          <h3>6 Month Tarot Reading - $75</h3>
+          <div class="detail-desc">Receive a tarot reading to learn about what will happen in every month of your next 6 months! A month-by-month view of the half-year ahead.<br><br><strong>Before you order:</strong> You must be 18 or older. Tarot readings are for entertainment purposes only.</div>
+          <a class="button" href="https://buy.stripe.com/bJe3cv9lz0QM0se97bfbq02" target="_blank" rel="noopener noreferrer">Click to check out</a><br>
+          <a class="back-link" onclick="hideReadingDetails()">Back to readings</a>
+        </div>
+        <div class="reading-detail" id="detail-12month">
+          <h3>12 Month Tarot Reading - $120</h3>
+          <div class="detail-desc">Yes! Liny can do a video reading showing you every month in your year! Get a yearly tarot reading now and see the full twelve months laid out.<br><br><strong>Before you order:</strong> You must be 18 or older. Tarot readings are for entertainment purposes only.</div>
+          <a class="button" href="https://buy.stripe.com/cNi3cvfJX5722Ambfjfbq04" target="_blank" rel="noopener noreferrer">Click to check out</a><br>
+          <a class="back-link" onclick="hideReadingDetails()">Back to readings</a>
         </div>
       </div>
+      <script>
+        function showReadingDetail(id) {
+          document.querySelectorAll('#page-readings .reading-detail').forEach(function(el) {
+            el.classList.remove('active');
+          });
+          document.getElementById('detail-' + id).classList.add('active');
+          document.getElementById('reading-grid').style.display = 'none';
+          document.getElementById('detail-' + id).scrollIntoView({behavior: 'smooth'});
+        }
+        function hideReadingDetails() {
+          document.querySelectorAll('#page-readings .reading-detail').forEach(function(el) {
+            el.classList.remove('active');
+          });
+          document.getElementById('reading-grid').style.display = '';
+        }
+      </script>
     </section>
 
     <section class="internal-page page-view" id="page-contact" hidden aria-labelledby="contact-title">
