@@ -1020,239 +1020,317 @@
       </div>
     </section>
 
-    <section class="internal-page page-view" id="page-readings" hidden aria-labelledby="readings-title">
+        <section class="internal-page page-view" id="page-readings" hidden aria-labelledby="readings-title">
       <style>
-        #page-readings .readings-hero {
-          text-align: center;
-          padding: 40px 20px 24px;
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+        #page-readings {
+          --rd-paper: #061c17;
+          --rd-surface: #0b2b22;
+          --rd-ink: #f7efd9;
+          --rd-ink-strong: #fff9e8;
+          --rd-muted: #c6c0aa;
+          --rd-line: rgba(210, 177, 99, .34);
+          --rd-line-bright: rgba(232, 200, 124, .72);
+          --rd-desc-bg: #f6e7bd;
+          --rd-desc-ink: #2e2410;
+          --rd-gold: #d7b66c;
+          --rd-gold-strong: #f1d58d;
+          --rd-display: "Cormorant Garamond", Georgia, serif;
+          --rd-body: "Manrope", -apple-system, "Segoe UI", sans-serif;
+          background: var(--rd-paper);
+          color: var(--rd-ink);
+          font-family: var(--rd-body);
         }
-        #page-readings .readings-hero .eyebrow {
-          color: #d7b66c;
-          text-transform: uppercase;
-          letter-spacing: .18em;
-          font-size: .8rem;
-          margin-bottom: 10px;
-        }
-        #page-readings .readings-hero h1 {
-          font-family: "Cormorant Garamond", Georgia, serif;
-          color: #f7efd9;
-          font-size: clamp(2rem, 6vw, 3rem);
-          margin: 0 0 12px;
-        }
-        #page-readings .readings-hero p {
-          color: #c6c0aa;
-          max-width: 600px;
-          margin: 0 auto;
-        }
-        #page-readings .reading-grid {
+        /* ---------- Hero ---------- */
+        #page-readings .rd-hero {
+          position: relative;
+          isolation: isolate;
+          min-height: 380px;
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 24px;
-          padding: 24px 20px;
+          align-items: center;
+          overflow: hidden;
+          background: #06241c;
+          color: #fff8e7;
+        }
+        #page-readings .rd-hero::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          z-index: -2;
+          background: url('assets/banners/hero-tarot-table.webp') center 30% / cover no-repeat;
+        }
+        #page-readings .rd-hero::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          z-index: -1;
+          background:
+            linear-gradient(180deg, rgba(183, 233, 205, .82) 0%, rgba(183, 233, 205, .36) 15%, transparent 38%),
+            linear-gradient(90deg, rgba(3,25,19,.97) 0%, rgba(4,31,24,.93) 40%, rgba(4,31,24,.60) 68%, rgba(3,17,14,.15) 100%),
+            linear-gradient(0deg, rgba(3,20,16,.72), transparent 55%);
+        }
+        #page-readings .rd-hero-face {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          width: min(430px, 46%);
+          height: 88%;
+          z-index: 0;
+          background: url('assets/banners/hero-face.jpg') center top / cover no-repeat;
+          mix-blend-mode: overlay;
+          opacity: .82;
+          -webkit-mask-image: radial-gradient(ellipse 90% 88% at 62% 30%, #000 42%, transparent 78%);
+          mask-image: radial-gradient(ellipse 90% 88% at 62% 30%, #000 42%, transparent 78%);
+        }
+        #page-readings .rd-hero-inner {
+          position: relative;
+          z-index: 1;
           max-width: 1100px;
           margin: 0 auto;
+          padding: 56px 24px 64px;
         }
-        #page-readings .reading-card {
-          background: #0b2b22;
-          border: 1px solid rgba(210,177,99,.34);
-          outline: 1px solid rgba(232,200,124,.15);
-          outline-offset: 4px;
-          border-radius: 5px;
-          padding: 28px 24px;
-          text-align: center;
-          position: relative;
-          box-shadow: 0 8px 32px rgba(0,0,0,.4);
-        }
-        #page-readings .reading-card::before {
-          content: "º6";
-          position: absolute;
-          top: -12px;
-          left: 50%;
-          transform: translateX(-50%);
-          color: #d7b66c;
-          font-size: 18px;
-          background: #0b2b22;
-          padding: 0 8px;
-        }
-        #page-readings .reading-card h3 {
-          font-family: "Cormorant Garamond", Georgia, serif;
-          color: #f1d58d;
-          font-size: 1.5rem;
-          margin: 0 0 8px;
-        }
-        #page-readings .reading-card .reading-desc {
-          background: #f6e7bd;
-          color: #2e2410;
-          border-top: 1px solid rgba(210,177,99,.5);
-          border-bottom: 1px solid rgba(210,177,99,.5);
-          padding: 14px 16px;
-          margin: 16px -24px;
-          font-size: .95rem;
-          line-height: 1.5;
-        }
-        #page-readings .reading-card .reading-price {
-          font-family: "Cormorant Garamond", Georgia, serif;
-          color: #f1d58d;
-          font-size: 2rem;
-          margin: 12px 0 4px;
-        }
-        #page-readings .reading-card .reading-delivery {
-          color: #c6c0aa;
-          font-size: .85rem;
+        #page-readings .rd-moonrow {
+          display: flex;
+          align-items: center;
+          gap: 10px;
           margin-bottom: 18px;
-        }
-        #page-readings .reading-card .button {
-          display: inline-block;
-          background: linear-gradient(135deg, #caa85b, #efd38d 46%, #b78f41);
-          border: 1px solid #f2d995;
-          color: #122c23;
-          font-weight: 700;
-          padding: 14px 28px;
-          border-radius: 4px;
-          text-decoration: none;
-          cursor: pointer;
+          color: #e4c67d;
           font-size: 1rem;
         }
-        #page-readings .reading-detail {
-          display: none;
-          background: #0b2b22;
-          border: 1px solid rgba(210,177,99,.34);
-          border-radius: 5px;
-          padding: 32px 28px;
-          margin: 24px auto;
-          max-width: 700px;
-          text-align: center;
+        #page-readings .rd-moonrow .rd-rule {
+          width: 56px;
+          height: 1px;
+          background: linear-gradient(90deg, transparent, #e4c67d);
         }
-        #page-readings .reading-detail.active {
-          display: block;
+        #page-readings .rd-kicker {
+          margin: 0 0 14px;
+          color: #ddc783;
+          font-size: .72rem;
+          font-weight: 700;
+          letter-spacing: .2em;
+          text-transform: uppercase;
         }
-        #page-readings .reading-detail h3 {
-          font-family: "Cormorant Garamond", Georgia, serif;
-          color: #f1d58d;
-          font-size: 1.8rem;
-          margin: 0 0 12px;
+        #page-readings .rd-hero h1 {
+          font-family: var(--rd-display);
+          font-weight: 500;
+          font-size: clamp(2.6rem, 7vw, 4.2rem);
+          line-height: 1.04;
+          margin: 0 0 16px;
+          color: #fff9e8;
+          text-wrap: balance;
         }
-        #page-readings .reading-detail .detail-desc {
-          background: #f6e7bd;
-          color: #2e2410;
-          padding: 20px;
-          border-radius: 4px;
-          margin: 16px 0;
-          text-align: left;
+        #page-readings .rd-hero-copy {
+          margin: 0;
+          max-width: 520px;
+          color: #e9e2cd;
+          font-size: 1.02rem;
           line-height: 1.6;
         }
-        #page-readings .reading-detail .button {
+        /* ---------- Listing band ---------- */
+        #page-readings .rd-listing {
+          background: #fff;
+          padding: 44px 0 60px;
+        }
+        #page-readings .rd-shell {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 0 20px;
+        }
+        #page-readings .rd-back {
           display: inline-block;
+          margin-bottom: 18px;
+          color: #0b2b22;
+          font-weight: 600;
+          font-size: .92rem;
+        }
+        #page-readings .rd-cards {
+          display: grid;
+          grid-template-columns: repeat(6, minmax(0, 1fr));
+          gap: 22px;
+          align-items: stretch;
+        }
+        #page-readings .rd-card {
+          position: relative;
+          isolation: isolate;
+          grid-column: span 2;
+          min-width: 0;
+          display: flex;
+          flex-direction: column;
+          padding: 30px 20px 24px;
+          background:
+            linear-gradient(145deg, #0e3327, #0b2b22 42%, #081f18);
+          border: 1px solid var(--rd-line-bright);
+          border-radius: 5px;
+          box-shadow: 0 26px 70px rgba(0, 10, 7, .34), 0 4px 14px rgba(0, 12, 8, .24);
+        }
+        #page-readings .rd-card::before {
+          content: "";
+          position: absolute;
+          inset: 7px;
+          z-index: -1;
+          border: 1px solid var(--rd-line);
+          border-radius: 3px;
+          pointer-events: none;
+        }
+        #page-readings .rd-card::after {
+          content: "\2726";
+          position: absolute;
+          top: 12px;
+          left: 50%;
+          transform: translateX(-50%);
+          color: var(--rd-gold);
+          font-size: .72rem;
+          opacity: .9;
+        }
+        #page-readings .rd-card:nth-child(4),
+        #page-readings .rd-card:nth-child(5) {
+          grid-column: span 3;
+        }
+        #page-readings .rd-card-art {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 12 / 5;
+          overflow: hidden;
+          background: #06241c;
+          border: 1px solid var(--rd-line-bright);
+          border-radius: 3px;
+          box-shadow: 0 16px 34px rgba(0, 0, 0, .3);
+          margin-bottom: 16px;
+        }
+        #page-readings .rd-card-art img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        #page-readings .rd-price-badge {
+          position: absolute;
+          z-index: 2;
+          right: 10px;
+          bottom: 10px;
+          min-width: 56px;
+          padding: 8px 10px 9px;
+          display: grid;
+          place-items: center;
           background: linear-gradient(135deg, #caa85b, #efd38d 46%, #b78f41);
           border: 1px solid #f2d995;
+          border-radius: 3px;
+          box-shadow: 0 10px 22px rgba(0, 0, 0, .48), 0 2px 6px rgba(0, 0, 0, .35);
           color: #122c23;
-          font-weight: 700;
-          padding: 16px 36px;
-          border-radius: 4px;
-          text-decoration: none;
-          font-size: 1.1rem;
-          margin-top: 12px;
+          font-family: var(--rd-display);
+          font-weight: 600;
+          font-size: 1.45rem;
+          line-height: 1;
         }
-        #page-readings .reading-detail .back-link {
-          display: inline-block;
-          color: #d7b66c;
-          margin-top: 16px;
+        #page-readings .rd-desc {
+          margin: 0 2px 18px;
+          padding: 14px 16px;
+          background: var(--rd-desc-bg);
+          border-top: 1px solid var(--rd-line);
+          border-bottom: 1px solid var(--rd-line);
+          color: var(--rd-desc-ink);
+          font-size: .9rem;
+          line-height: 1.55;
+          text-align: left;
+          flex: 1;
+        }
+        #page-readings .rd-btn {
+          display: block;
+          width: 100%;
+          padding: 15px 20px;
+          border: 1px solid #f2d995;
+          border-radius: 4px;
+          background: linear-gradient(135deg, #caa85b, #efd38d 46%, #b78f41);
+          color: #122c23;
+          font-family: var(--rd-body);
+          font-weight: 800;
+          font-size: 1rem;
+          text-align: center;
           cursor: pointer;
-          text-decoration: underline;
+        }
+        #page-readings .rd-btn:hover {
+          filter: brightness(1.06);
+        }
+        /* ---------- Responsive ---------- */
+        @media (max-width: 900px) {
+          #page-readings .rd-card { grid-column: span 3; }
+          #page-readings .rd-card:nth-child(4),
+          #page-readings .rd-card:nth-child(5) { grid-column: span 3; }
+          #page-readings .rd-card:nth-child(5) { grid-column: 2 / span 4; }
+        }
+        @media (max-width: 640px) {
+          #page-readings .rd-cards { grid-template-columns: 1fr; }
+          #page-readings .rd-card,
+          #page-readings .rd-card:nth-child(4),
+          #page-readings .rd-card:nth-child(5) { grid-column: 1 / -1; }
+          #page-readings .rd-hero-face { width: min(300px, 62%); height: 72%; opacity: .7; }
+          #page-readings .rd-hero-inner { padding: 44px 20px 52px; }
         }
       </style>
-      <div class="readings-hero">
-        <p class="eyebrow">Types of Tarot Readings</p>
-        <h1 id="readings-title">Choose the shape of your reading</h1>
-        <p>Every option is delivered as a private video reading, with the cards shown clearly as Liny walks through your questions.</p>
-      </div>
-      <div class="page-content">
-        <a class="route-back" href="#/home">Back to home</a>
-        <div class="reading-grid" id="reading-grid">
-          <article class="reading-card" data-product="2question">
-            <h3>Two Question Tarot</h3>
-            <div class="reading-desc">Have 2 Tarot Questions sent to you in a video reading delivered to you within 24 hours!</div>
-            <div class="reading-price">$20</div>
-            <div class="reading-delivery">Delivered within 24 hours</div>
-            <a class="button" onclick="showReadingDetail('2question')">Click to see details</a>
-          </article>
-          <article class="reading-card" data-product="5question">
-            <h3>5 Question Tarot</h3>
-            <div class="reading-desc">Send 1 to 5 Tarot Questions and receive a video tarot reading with the answers!</div>
-            <div class="reading-price">$75</div>
-            <div class="reading-delivery">Delivered within 48 hours</div>
-            <a class="button" onclick="showReadingDetail('5question')">Click to see details</a>
-          </article>
-          <article class="reading-card" data-product="fullmonth">
-            <h3>Full Month Tarot</h3>
-            <div class="reading-desc">See what will happen in every week of this month, or any month you choose!</div>
-            <div class="reading-price">$45</div>
-            <div class="reading-delivery">Delivered within 48 hours</div>
-            <a class="button" onclick="showReadingDetail('fullmonth')">Click to see details</a>
-          </article>
-          <article class="reading-card" data-product="6month">
-            <h3>6 Month Tarot</h3>
-            <div class="reading-desc">Learn about what will happen in every month of your next 6 months!</div>
-            <div class="reading-price">$75</div>
-            <div class="reading-delivery">Delivered within 72 hours</div>
-            <a class="button" onclick="showReadingDetail('6month')">Click to see details</a>
-          </article>
-          <article class="reading-card" data-product="12month">
-            <h3>12 Month Tarot</h3>
-            <div class="reading-desc">A video reading showing you every month in your year!</div>
-            <div class="reading-price">$120</div>
-            <div class="reading-delivery">Delivered within 72 hours</div>
-            <a class="button" onclick="showReadingDetail('12month')">Click to see details</a>
-          </article>
-        </div>
-        <div class="reading-detail" id="detail-2question">
-          <h3>Two Question Tarot Reading - $20</h3>
-          <div class="detail-desc">Have 2 Tarot Questions sent to you in a video reading delivered to you within 24 hours! This is a personal video reading where Liny answers your two questions with the cards shown clearly on screen.<br><br><strong>Before you order:</strong> You must be 18 or older. Tarot readings are for entertainment purposes only.</div>
-          <a class="button" href="https://buy.stripe.com/7sYcN52Xb42Y4Iufvzfbq00" target="_blank" rel="noopener noreferrer">Click to check out</a><br>
-          <a class="back-link" onclick="hideReadingDetails()">Back to readings</a>
-        </div>
-        <div class="reading-detail" id="detail-5question">
-          <h3>5 Question Tarot Reading - $75</h3>
-          <div class="detail-desc">You can send 1 to 5 Tarot Questions and Liny will send you a video tarot reading with the answers! A deeper session for when you have several things on your mind.<br><br><strong>Before you order:</strong> You must be 18 or older. Tarot readings are for entertainment purposes only.</div>
-          <a class="button" href="https://buy.stripe.com/dRm8wPapDeHC1wi6Z3fbq01" target="_blank" rel="noopener noreferrer">Click to check out</a><br>
-          <a class="back-link" onclick="hideReadingDetails()">Back to readings</a>
-        </div>
-        <div class="reading-detail" id="detail-fullmonth">
-          <h3>Full Month Tarot Reading - $45</h3>
-          <div class="detail-desc">Get a tarot reading to see what will happen in every week of this month, or any month you choose! A week-by-week breakdown of the energies ahead.<br><br><strong>Before you order:</strong> You must be 18 or older. Tarot readings are for entertainment purposes only.</div>
-          <a class="button" href="https://buy.stripe.com/8x27sL7drfLG5Mycjnfbq03" target="_blank" rel="noopener noreferrer">Click to check out</a><br>
-          <a class="back-link" onclick="hideReadingDetails()">Back to readings</a>
-        </div>
-        <div class="reading-detail" id="detail-6month">
-          <h3>6 Month Tarot Reading - $75</h3>
-          <div class="detail-desc">Receive a tarot reading to learn about what will happen in every month of your next 6 months! A month-by-month view of the half-year ahead.<br><br><strong>Before you order:</strong> You must be 18 or older. Tarot readings are for entertainment purposes only.</div>
-          <a class="button" href="https://buy.stripe.com/bJe3cv9lz0QM0se97bfbq02" target="_blank" rel="noopener noreferrer">Click to check out</a><br>
-          <a class="back-link" onclick="hideReadingDetails()">Back to readings</a>
-        </div>
-        <div class="reading-detail" id="detail-12month">
-          <h3>12 Month Tarot Reading - $120</h3>
-          <div class="detail-desc">Yes! Liny can do a video reading showing you every month in your year! Get a yearly tarot reading now and see the full twelve months laid out.<br><br><strong>Before you order:</strong> You must be 18 or older. Tarot readings are for entertainment purposes only.</div>
-          <a class="button" href="https://buy.stripe.com/cNi3cvfJX5722Ambfjfbq04" target="_blank" rel="noopener noreferrer">Click to check out</a><br>
-          <a class="back-link" onclick="hideReadingDetails()">Back to readings</a>
+
+      <div class="rd-hero">
+        <div class="rd-hero-face" aria-hidden="true"></div>
+        <div class="rd-hero-inner">
+          <div class="rd-moonrow" aria-hidden="true">
+            <span class="rd-rule"></span>
+            <span>&#9790;</span><span>&#9681;</span><span>&#9679;</span>
+            <span>&#10022;</span>
+          </div>
+          <p class="rd-kicker">Personal Video Tarot Readings</p>
+          <h1 id="readings-title">Pick your reading below.</h1>
+          <p class="rd-hero-copy">Choose the reading that fits what you want to ask, then review every detail before checkout.</p>
         </div>
       </div>
-      <script>
-        function showReadingDetail(id) {
-          document.querySelectorAll('#page-readings .reading-detail').forEach(function(el) {
-            el.classList.remove('active');
-          });
-          document.getElementById('detail-' + id).classList.add('active');
-          document.getElementById('reading-grid').style.display = 'none';
-          document.getElementById('detail-' + id).scrollIntoView({behavior: 'smooth'});
-        }
-        function hideReadingDetails() {
-          document.querySelectorAll('#page-readings .reading-detail').forEach(function(el) {
-            el.classList.remove('active');
-          });
-          document.getElementById('reading-grid').style.display = '';
-        }
-      </script>
+
+      <div class="rd-listing">
+        <div class="rd-shell">
+          <a class="rd-back route-back" href="#/home">&larr; Back to home</a>
+          <div class="rd-cards">
+            <article class="rd-card">
+              <div class="rd-card-art">
+                <img src="assets/banners/banner-2-question.jpg" alt="2 Question Tarot banner" loading="lazy" />
+                <span class="rd-price-badge">$20</span>
+              </div>
+              <p class="rd-desc">Have 2 Tarot Questions sent to you in a video reading Delivered To You Within 24 Hours!</p>
+              <button class="rd-btn" type="button" href="https://buy.stripe.com/7sYcN52Xb42Y4Iufvzfbq00" target="_blank" rel="noopener noreferrer">Click to see details</button>
+            </article>
+            <article class="rd-card">
+              <div class="rd-card-art">
+                <img src="assets/banners/banner-5-question.webp" alt="5 Question Tarot banner" loading="lazy" />
+                <span class="rd-price-badge">$75</span>
+              </div>
+              <p class="rd-desc">You Can Send Me 1 to 5 Tarot Questions and I Will Send You A Video Tarot Reading With The Answer!</p>
+              <button class="rd-btn" type="button" href="https://buy.stripe.com/dRm8wPapDeHC1wi6Z3fbq01" target="_blank" rel="noopener noreferrer">Click to see details</button>
+            </article>
+            <article class="rd-card">
+              <div class="rd-card-art">
+                <img src="assets/banners/banner-full-month.webp" alt="Full Month Tarot banner" loading="lazy" />
+                <span class="rd-price-badge">$45</span>
+              </div>
+              <p class="rd-desc">Get A Tarot Reading To See What Will Happen in Every Week of This Month, or Any Month You Choose!</p>
+              <button class="rd-btn" type="button" href="https://buy.stripe.com/8x27sL7drfLG5Mycjnfbq03" target="_blank" rel="noopener noreferrer">Click to see details</button>
+            </article>
+            <article class="rd-card">
+              <div class="rd-card-art">
+                <img src="assets/banners/banner-6-month.webp" alt="6 Month Tarot banner" loading="lazy" />
+                <span class="rd-price-badge">$75</span>
+              </div>
+              <p class="rd-desc">Receive a Tarot Reading To Learn About What Will Happen In Every Month of Your Next 6 Months!</p>
+              <button class="rd-btn" type="button" href="https://buy.stripe.com/bJe3cv9lz0QM0se97bfbq02" target="_blank" rel="noopener noreferrer">Click to see details</button>
+            </article>
+            <article class="rd-card">
+              <div class="rd-card-art">
+                <img src="assets/banners/banner-12-month.webp" alt="12 Month Tarot banner" loading="lazy" />
+                <span class="rd-price-badge">$120</span>
+              </div>
+              <p class="rd-desc">YES! I Can Do a Video Reading Showing You Every Month In Your Year! Get A Yearly Tarot Reading Now!</p>
+              <button class="rd-btn" type="button" href="https://buy.stripe.com/cNi3cvfJX5722Ambfjfbq04" target="_blank" rel="noopener noreferrer">Click to see details</button>
+            </article>
+          </div>
+        </div>
+      </div>
     </section>
+
 
     <section class="internal-page page-view" id="page-contact" hidden aria-labelledby="contact-title">
       <header class="page-hero">
