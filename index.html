@@ -1272,8 +1272,8 @@
           #page-readings .rd-card {
             flex-direction: row;
             text-align: left;
-            padding: 16px;
-            gap: 14px;
+            padding: 18px;
+            gap: 16px;
             align-items: flex-start;
           }
           #page-readings .rd-thumb { flex: none; width: 38%; max-width: 140px; aspect-ratio: 4/5; }
@@ -1281,7 +1281,7 @@
           #page-readings .rd-title { font-size: 1.15rem; }
           #page-readings .rd-desc { text-align: left; font-size: .85rem; }
           #page-readings .rd-meta { justify-content: flex-start; }
-          #page-readings .rd-btn { white-space: nowrap; font-size: .85rem; padding: 12px 18px; }
+          #page-readings .rd-btn { white-space: nowrap; font-size: .82rem; padding: 12px 16px; max-width: 100%; overflow: hidden; text-overflow: ellipsis; display: inline-block; }
           #page-readings .rd-hero-face { width: min(300px, 62%); height: 72%; opacity: .7; }
           #page-readings .rd-hero-inner { padding: 44px 20px 52px; }
         }
@@ -1401,8 +1401,11 @@
         <div class="rd-top-banner" style="margin: 0; padding: 0;">
           <img src="assets/banners/top-banner-liny-dee.png" alt="Liny Dee Tarot" style="width: 100%; height: auto; display: block;">
         </div>
+        <div style="text-align: center; padding: 18px 20px 6px;">
+          <span style="color: #d7b66c; text-transform: uppercase; letter-spacing: .22em; font-size: .82rem; font-weight: 600;">Personal Video Tarot Readings</span>
+        </div>
         <div class="rd-shell">
-          <a class="rd-back route-back" href="#/home">&larr; Back to home</a> <span style="margin: 0 8px; color: #d7b66c;">|</span> <a class="rd-back route-back" onclick="hideReadingDetail()">&larr; Back to readings</a>
+          
           <div class="rd-cards">
             <article class="rd-card">
               <div class="rd-thumb">
