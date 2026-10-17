@@ -1272,13 +1272,16 @@
           #page-readings .rd-card {
             flex-direction: row;
             text-align: left;
-            padding: 22px 20px 24px;
-            gap: 18px;
+            padding: 16px;
+            gap: 14px;
+            align-items: flex-start;
           }
-          #page-readings .rd-thumb { flex: none; width: min(240px, 72%); }
-          #page-readings .rd-body { align-items: center; }
-          #page-readings .rd-desc { text-align: center; }
-          #page-readings .rd-meta { justify-content: center; }
+          #page-readings .rd-thumb { flex: none; width: 38%; max-width: 140px; }
+          #page-readings .rd-body { align-items: flex-start; flex: 1; min-width: 0; }
+          #page-readings .rd-title { font-size: 1.15rem; }
+          #page-readings .rd-desc { text-align: left; font-size: .85rem; }
+          #page-readings .rd-meta { justify-content: flex-start; }
+          #page-readings .rd-btn { white-space: nowrap; font-size: .85rem; padding: 12px 18px; }
           #page-readings .rd-hero-face { width: min(300px, 62%); height: 72%; opacity: .7; }
           #page-readings .rd-hero-inner { padding: 44px 20px 52px; }
         }
