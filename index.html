@@ -8,7 +8,7 @@
   <link rel="icon" href="data:," />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Pinyon+Script&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
   <title>Liny Dee Tarot</title>
   <style>
     :root {
@@ -172,9 +172,9 @@
       content: "";
       position: absolute;
       inset: -9px;
-      border: 1px solid rgba(232, 204, 132, .92);
+      border: 2px solid rgba(242, 220, 164, .95);
       border-radius: 50%;
-      box-shadow: 0 0 0 4px rgba(4, 28, 18, .45);
+      box-shadow: 0 0 0 4px rgba(4, 28, 18, .45), 0 0 28px rgba(242, 220, 164, .65), 0 0 60px rgba(212, 169, 78, .35);
     }
     .portrait {
       position: relative;
@@ -201,10 +201,18 @@
     .hero-corner-mark.bird-mark { right: 18px; color: #fff; opacity: .82; }
     .hero h1 {
       margin: 0;
-      font: 600 clamp(3.55rem, 15vw, 6.5rem)/.84 var(--display);
-      letter-spacing: -.045em;
+      font-family: "Pinyon Script", "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(3.8rem, 16vw, 7rem);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0;
       text-wrap: balance;
-      text-shadow: 0 3px 24px rgba(0,0,0,.65);
+      background: linear-gradient(180deg, #fff6d8 0%, #f2dca4 30%, #d4a94e 60%, #b8860b 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #f2dca4;
+      filter: drop-shadow(0 0 18px rgba(242, 220, 164, .55)) drop-shadow(0 3px 24px rgba(0,0,0,.65));
     }
     .hero-tagline {
       width: min(100%, 720px);
