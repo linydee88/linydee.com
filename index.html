@@ -1528,11 +1528,35 @@
           </div>
           <span style="color: #d7b66c; text-transform: uppercase; letter-spacing: .22em; font-size: .82rem; font-weight: 600;">Personal Video Tarot Readings</span>
         </div>
-        <style>@media (min-width: 720px) { #page-readings .rd-top-banner { text-align: center; } #page-readings .rd-top-banner img { max-height: 220px; width: auto; max-width: 90%; object-fit: contain; margin: 0 auto; } }</style>
+        <style>@media (min-width: 720px) {
+            #page-readings .rd-banner-mobile { display: none !important; }
+            #page-readings .rd-banner-desktop { display: block !important; }
+            #page-readings .rd-top-banner img.rd-banner-desktop { max-height: none; width: 100%; max-width: 100%; object-fit: cover; }
+          }
+          @media (max-width: 719px) {
+            #page-readings .rd-banner-desktop { display: none !important; }
+          }
+          @media (min-width: 720px) {
+            #page-readings .rd-body > div[style*="display:block"] {
+              display: flex !important;
+              flex-direction: row !important;
+              gap: 8px !important;
+              padding: 10px 0 0 !important;
+            }
+            #page-readings .rd-body > div[style*="display:block"] > button,
+            #page-readings .rd-body > div[style*="display:block"] > a {
+              flex: 1 1 0 !important;
+              width: auto !important;
+            }
+            #page-readings .rd-body > div[style*="display:block"] > div[style*="height:6px"] {
+              display: none !important;
+            }
+          }</style>
         <div class="rd-top-banner" style="position: relative; margin: 0; padding: 0;">
-          <img src="assets/banners/top-banner-liny-dee.png" alt="Liny Dee Tarot" style="width: 100%; height: auto; display: block;">
+          <img src="assets/banners/top-banner-liny-dee.png" alt="Liny Dee Tarot" class="rd-banner-mobile" style="width: 100%; height: auto; display: block;">
+          <img src="assets/banners/top-banner-desktop.png" alt="Liny Dee Tarot" class="rd-banner-desktop" style="width: 100%; height: auto; display: none;">
           <img src="assets/banners/liny-avatar.png" alt="Liny" style="position: absolute; bottom: -30px; left: 5%; width: 140px; height: auto; z-index: 10; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));" />
-          <p style="position: absolute; bottom: 10px; left: 42%; right: 5%; color: #f1d58d; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; margin: 0; z-index: 10; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">Check out my readings below!</p>
+          <p style="position: absolute; bottom: 10px; left: 42%; right: 5%; color: #f1d58d; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; text-align: center; margin: 0; z-index: 10; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">Check out my readings below!</p>
         </div>
         <div class="rd-shell">
           
@@ -1546,15 +1570,16 @@
               <div class="rd-body">
                 <h3 class="rd-title">2 Question Reading</h3>
                 <p class="rd-desc">Have 2 Tarot Questions sent to you in a video reading Delivered To You Within 24 Hours!</p>
-                
-              </div>
-              <div style="display:block!important;width:100%!important;flex-basis:100%!important;flex-shrink:0!important;box-sizing:border-box!important;padding:0 12px 12px!important;clear:both!important;">
+              <div style="display:block!important;width:100%!important;flex-basis:100%!important;flex-shrink:0!important;box-sizing:border-box!important;padding:10px 0 0!important;clear:both!important;">
                 <button type="button" onclick="showReadingDetail('2-question')" style="display:block!important;width:100%!important;flex:none!important;padding:8px 10px!important;font-size:13px!important;font-weight:700!important;text-align:center!important;box-sizing:border-box!important;margin:0!important;border:1px solid #f2d995!important;border-radius:8px!important;background:linear-gradient(135deg,#caa85b,#efd38d 46%,#b78f41)!important;color:#122c23!important;font-family:Manrope,sans-serif!important;cursor:pointer!important;white-space:normal!important;">View Details</button>
                 <div style="height:6px;"></div>
                 <a href="https://buy.stripe.com/7sYcN52Xb42Y4Iufvzfbq00" target="_blank" rel="noopener noreferrer" style="display:block!important;width:100%!important;flex:none!important;padding:8px 10px!important;font-size:13px!important;font-weight:700!important;text-align:center!important;box-sizing:border-box!important;margin:0!important;border:1px solid #f2d995!important;border-radius:8px!important;background:linear-gradient(135deg,#caa85b,#efd38d 46%,#b78f41)!important;color:#122c23!important;font-family:Manrope,sans-serif!important;cursor:pointer!important;white-space:normal!important;text-decoration:none!important;">Pay with Card</a>
                 <div style="height:6px;"></div>
                 <a href="https://www.paypal.com/ncp/payment/CD28N8UM2MSZS" target="_blank" rel="noopener noreferrer" style="display:block!important;width:100%!important;flex:none!important;padding:8px 10px!important;font-size:13px!important;font-weight:700!important;text-align:center!important;box-sizing:border-box!important;margin:0!important;border:1px solid #f2d995!important;border-radius:8px!important;background:linear-gradient(135deg,#caa85b,#efd38d 46%,#b78f41)!important;color:#122c23!important;font-family:Manrope,sans-serif!important;cursor:pointer!important;white-space:normal!important;text-decoration:none!important;">Pay with PayPal</a>
               </div>
+                
+              </div>
+              
             </article>
             <article class="rd-card">
               <div class="rd-thumb">
@@ -1565,15 +1590,16 @@
               <div class="rd-body">
                 <h3 class="rd-title">5 Question Reading</h3>
                 <p class="rd-desc">You Can Send Me 1 to 5 Tarot Questions and I Will Send You A Video Tarot Reading With The Answer!</p>
-                
-              </div>
-              <div style="display:block!important;width:100%!important;flex-basis:100%!important;flex-shrink:0!important;box-sizing:border-box!important;padding:0 12px 12px!important;clear:both!important;">
+              <div style="display:block!important;width:100%!important;flex-basis:100%!important;flex-shrink:0!important;box-sizing:border-box!important;padding:10px 0 0!important;clear:both!important;">
                 <button type="button" onclick="showReadingDetail('5-question')" style="display:block!important;width:100%!important;flex:none!important;padding:8px 10px!important;font-size:13px!important;font-weight:700!important;text-align:center!important;box-sizing:border-box!important;margin:0!important;border:1px solid #f2d995!important;border-radius:8px!important;background:linear-gradient(135deg,#caa85b,#efd38d 46%,#b78f41)!important;color:#122c23!important;font-family:Manrope,sans-serif!important;cursor:pointer!important;white-space:normal!important;">View Details</button>
                 <div style="height:6px;"></div>
                 <a href="https://buy.stripe.com/dRm8wPapDeHC1wi6Z3fbq01" target="_blank" rel="noopener noreferrer" style="display:block!important;width:100%!important;flex:none!important;padding:8px 10px!important;font-size:13px!important;font-weight:700!important;text-align:center!important;box-sizing:border-box!important;margin:0!important;border:1px solid #f2d995!important;border-radius:8px!important;background:linear-gradient(135deg,#caa85b,#efd38d 46%,#b78f41)!important;color:#122c23!important;font-family:Manrope,sans-serif!important;cursor:pointer!important;white-space:normal!important;text-decoration:none!important;">Pay with Card</a>
                 <div style="height:6px;"></div>
                 <a href="https://www.paypal.com/ncp/payment/MLACS2F8G7N4L" target="_blank" rel="noopener noreferrer" style="display:block!important;width:100%!important;flex:none!important;padding:8px 10px!important;font-size:13px!important;font-weight:700!important;text-align:center!important;box-sizing:border-box!important;margin:0!important;border:1px solid #f2d995!important;border-radius:8px!important;background:linear-gradient(135deg,#caa85b,#efd38d 46%,#b78f41)!important;color:#122c23!important;font-family:Manrope,sans-serif!important;cursor:pointer!important;white-space:normal!important;text-decoration:none!important;">Pay with PayPal</a>
               </div>
+                
+              </div>
+              
             </article>
             <article class="rd-card">
               <div class="rd-thumb">
@@ -1584,15 +1610,16 @@
               <div class="rd-body">
                 <h3 class="rd-title">Full Month Reading</h3>
                 <p class="rd-desc">Get A Tarot Reading To See What Will Happen in Every Week of This Month, or Any Month You Choose!</p>
-                
-              </div>
-              <div style="display:block!important;width:100%!important;flex-basis:100%!important;flex-shrink:0!important;box-sizing:border-box!important;padding:0 12px 12px!important;clear:both!important;">
+              <div style="display:block!important;width:100%!important;flex-basis:100%!important;flex-shrink:0!important;box-sizing:border-box!important;padding:10px 0 0!important;clear:both!important;">
                 <button type="button" onclick="showReadingDetail('full-month')" style="display:block!important;width:100%!important;flex:none!important;padding:8px 10px!important;font-size:13px!important;font-weight:700!important;text-align:center!important;box-sizing:border-box!important;margin:0!important;border:1px solid #f2d995!important;border-radius:8px!important;background:linear-gradient(135deg,#caa85b,#efd38d 46%,#b78f41)!important;color:#122c23!important;font-family:Manrope,sans-serif!important;cursor:pointer!important;white-space:normal!important;">View Details</button>
                 <div style="height:6px;"></div>
                 <a href="https://buy.stripe.com/8x27sL7drfLG5Mycjnfbq03" target="_blank" rel="noopener noreferrer" style="display:block!important;width:100%!important;flex:none!important;padding:8px 10px!important;font-size:13px!important;font-weight:700!important;text-align:center!important;box-sizing:border-box!important;margin:0!important;border:1px solid #f2d995!important;border-radius:8px!important;background:linear-gradient(135deg,#caa85b,#efd38d 46%,#b78f41)!important;color:#122c23!important;font-family:Manrope,sans-serif!important;cursor:pointer!important;white-space:normal!important;text-decoration:none!important;">Pay with Card</a>
                 <div style="height:6px;"></div>
                 <a href="https://www.paypal.com/ncp/payment/HBBTRZMU5YEMG" target="_blank" rel="noopener noreferrer" style="display:block!important;width:100%!important;flex:none!important;padding:8px 10px!important;font-size:13px!important;font-weight:700!important;text-align:center!important;box-sizing:border-box!important;margin:0!important;border:1px solid #f2d995!important;border-radius:8px!important;background:linear-gradient(135deg,#caa85b,#efd38d 46%,#b78f41)!important;color:#122c23!important;font-family:Manrope,sans-serif!important;cursor:pointer!important;white-space:normal!important;text-decoration:none!important;">Pay with PayPal</a>
               </div>
+                
+              </div>
+              
             </article>
             <article class="rd-card">
               <div class="rd-thumb">
@@ -1603,15 +1630,16 @@
               <div class="rd-body">
                 <h3 class="rd-title">6 Month Reading</h3>
                 <p class="rd-desc">Receive a Tarot Reading To Learn About What Will Happen In Every Month of Your Next 6 Months!</p>
-                
-              </div>
-              <div style="display:block!important;width:100%!important;flex-basis:100%!important;flex-shrink:0!important;box-sizing:border-box!important;padding:0 12px 12px!important;clear:both!important;">
+              <div style="display:block!important;width:100%!important;flex-basis:100%!important;flex-shrink:0!important;box-sizing:border-box!important;padding:10px 0 0!important;clear:both!important;">
                 <button type="button" onclick="showReadingDetail('6-month')" style="display:block!important;width:100%!important;flex:none!important;padding:8px 10px!important;font-size:13px!important;font-weight:700!important;text-align:center!important;box-sizing:border-box!important;margin:0!important;border:1px solid #f2d995!important;border-radius:8px!important;background:linear-gradient(135deg,#caa85b,#efd38d 46%,#b78f41)!important;color:#122c23!important;font-family:Manrope,sans-serif!important;cursor:pointer!important;white-space:normal!important;">View Details</button>
                 <div style="height:6px;"></div>
                 <a href="https://buy.stripe.com/bJe3cv9lz0QM0se97bfbq02" target="_blank" rel="noopener noreferrer" style="display:block!important;width:100%!important;flex:none!important;padding:8px 10px!important;font-size:13px!important;font-weight:700!important;text-align:center!important;box-sizing:border-box!important;margin:0!important;border:1px solid #f2d995!important;border-radius:8px!important;background:linear-gradient(135deg,#caa85b,#efd38d 46%,#b78f41)!important;color:#122c23!important;font-family:Manrope,sans-serif!important;cursor:pointer!important;white-space:normal!important;text-decoration:none!important;">Pay with Card</a>
                 <div style="height:6px;"></div>
                 <a href="https://www.paypal.com/ncp/payment/B9468MVEUW3T2" target="_blank" rel="noopener noreferrer" style="display:block!important;width:100%!important;flex:none!important;padding:8px 10px!important;font-size:13px!important;font-weight:700!important;text-align:center!important;box-sizing:border-box!important;margin:0!important;border:1px solid #f2d995!important;border-radius:8px!important;background:linear-gradient(135deg,#caa85b,#efd38d 46%,#b78f41)!important;color:#122c23!important;font-family:Manrope,sans-serif!important;cursor:pointer!important;white-space:normal!important;text-decoration:none!important;">Pay with PayPal</a>
               </div>
+                
+              </div>
+              
             </article>
             <article class="rd-card">
               <div class="rd-thumb">
@@ -1622,15 +1650,16 @@
               <div class="rd-body">
                 <h3 class="rd-title">12 Month Reading</h3>
                 <p class="rd-desc">YES! I Can Do a Video Reading Showing You Every Month In Your Year! Get A Yearly Tarot Reading Now!</p>
-                
-              </div>
-              <div style="display:block!important;width:100%!important;flex-basis:100%!important;flex-shrink:0!important;box-sizing:border-box!important;padding:0 12px 12px!important;clear:both!important;">
+              <div style="display:block!important;width:100%!important;flex-basis:100%!important;flex-shrink:0!important;box-sizing:border-box!important;padding:10px 0 0!important;clear:both!important;">
                 <button type="button" onclick="showReadingDetail('12-month')" style="display:block!important;width:100%!important;flex:none!important;padding:8px 10px!important;font-size:13px!important;font-weight:700!important;text-align:center!important;box-sizing:border-box!important;margin:0!important;border:1px solid #f2d995!important;border-radius:8px!important;background:linear-gradient(135deg,#caa85b,#efd38d 46%,#b78f41)!important;color:#122c23!important;font-family:Manrope,sans-serif!important;cursor:pointer!important;white-space:normal!important;">View Details</button>
                 <div style="height:6px;"></div>
                 <a href="https://buy.stripe.com/cNi3cvfJX5722Ambfjfbq04" target="_blank" rel="noopener noreferrer" style="display:block!important;width:100%!important;flex:none!important;padding:8px 10px!important;font-size:13px!important;font-weight:700!important;text-align:center!important;box-sizing:border-box!important;margin:0!important;border:1px solid #f2d995!important;border-radius:8px!important;background:linear-gradient(135deg,#caa85b,#efd38d 46%,#b78f41)!important;color:#122c23!important;font-family:Manrope,sans-serif!important;cursor:pointer!important;white-space:normal!important;text-decoration:none!important;">Pay with Card</a>
                 <div style="height:6px;"></div>
                 <a href="https://www.paypal.com/ncp/payment/SG8T7SWG5A2Z4" target="_blank" rel="noopener noreferrer" style="display:block!important;width:100%!important;flex:none!important;padding:8px 10px!important;font-size:13px!important;font-weight:700!important;text-align:center!important;box-sizing:border-box!important;margin:0!important;border:1px solid #f2d995!important;border-radius:8px!important;background:linear-gradient(135deg,#caa85b,#efd38d 46%,#b78f41)!important;color:#122c23!important;font-family:Manrope,sans-serif!important;cursor:pointer!important;white-space:normal!important;text-decoration:none!important;">Pay with PayPal</a>
               </div>
+                
+              </div>
+              
             </article>
           </div>
         </div>
