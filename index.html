@@ -1637,7 +1637,7 @@
             wrap.hidden = false;
             wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
-          if (history.replaceState) history.replaceState(null, '', '#/readings/' + key);
+          try { sessionStorage.setItem('rd-detail', key); } catch(e) {}
         }
         function hideReadingDetail() {
           document.querySelectorAll('#page-readings .rd-detail-wrap').forEach(function(el) {
@@ -1648,19 +1648,24 @@
             listing.style.display = '';
             listing.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
-          if (history.replaceState) history.replaceState(null, '', '#/readings');
+          try { sessionStorage.removeItem('rd-detail'); } catch(e) {}
         }
         // Restore detail view on refresh
         (function() {
-          var m = location.hash.match(/^#\/readings\/([a-z0-9-]+)$/);
-          if (m) {
-            var key = m[1];
-            var wrap = document.getElementById('rd-detail-wrap-' + key);
-            if (wrap) {
-              // Wait for page to be visible
-              setTimeout(function() { showReadingDetail(key); }, 100);
+          try {
+            var key = sessionStorage.getItem('rd-detail');
+            if (key && location.hash.indexOf('#/readings') === 0) {
+              var wrap = document.getElementById('rd-detail-wrap-' + key);
+              if (wrap) {
+                setTimeout(function() {
+                  var listing = document.querySelector('#page-readings .rd-listing');
+                  if (listing) listing.style.display = 'none';
+                  document.querySelectorAll('#page-readings .rd-detail-wrap').forEach(function(el) { el.hidden = true; });
+                  wrap.hidden = false;
+                }, 200);
+              }
             }
-          }
+          } catch(e) {}
         })();
       </script>
     </section>
