@@ -1706,6 +1706,7 @@
         function showReadingDetail(key) {
           rdScrollPos = window.scrollY || window.pageYOffset;
           rdCurrentDetail = key;
+          try { sessionStorage.setItem('rd-detail', key); } catch(e) {}
           var listing = document.querySelector('#page-readings .rd-listing');
           if (listing) listing.style.display = 'none';
           document.querySelectorAll('#page-readings .rd-detail-wrap').forEach(function(el) {
@@ -1719,6 +1720,7 @@
         }
         function hideReadingDetail() {
           rdCurrentDetail = null;
+          try { sessionStorage.removeItem('rd-detail'); } catch(e) {}
           document.querySelectorAll('#page-readings .rd-detail-wrap').forEach(function(el) {
             el.hidden = true;
           });
@@ -1726,6 +1728,30 @@
           if (listing) listing.style.display = '';
           window.scrollTo(0, rdScrollPos);
         }
+        // Restore detail on page refresh only
+        (function() {
+          try {
+            var key = sessionStorage.getItem('rd-detail');
+            if (key) {
+              // Clear it immediately so nav clicks don't restore
+              sessionStorage.removeItem('rd-detail');
+              // Only restore if we're on the readings page
+              if (location.hash === '#/readings' || location.hash === '') {
+                setTimeout(function() {
+                  var wrap = document.getElementById('rd-detail-wrap-' + key);
+                  if (wrap) {
+                    rdCurrentDetail = key;
+                    var listing = document.querySelector('#page-readings .rd-listing');
+                    if (listing) listing.style.display = 'none';
+                    document.querySelectorAll('#page-readings .rd-detail-wrap').forEach(function(el) { el.hidden = true; });
+                    wrap.hidden = false;
+                    window.scrollTo(0, 0);
+                  }
+                }, 300);
+              }
+            }
+          } catch(e) {}
+        })();
         function rdOrderSubmit(form) {
           var email = form.querySelector('[name="rd-email"]').value.trim();
           var url = form.getAttribute('data-stripe-url');
