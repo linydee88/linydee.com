@@ -1671,56 +1671,15 @@
 
       <script>
         var rdScrollPos = 0;
-        var rdCurrentDetail = null;
         function showReadingDetail(key) {
           rdScrollPos = window.scrollY || window.pageYOffset;
-          rdCurrentDetail = key;
-          try { sessionStorage.setItem('rd-detail', key); } catch(e) {}
-          var listing = document.querySelector('#page-readings .rd-listing');
-          if (listing) listing.style.display = 'none';
-          document.querySelectorAll('#page-readings .rd-detail-wrap').forEach(function(el) {
-            el.hidden = true;
-          });
-          var wrap = document.getElementById('rd-detail-wrap-' + key);
-          if (wrap) {
-            wrap.hidden = false;
-            window.scrollTo(0, 0);
-          }
+          location.hash = '#/reading/' + key;
         }
         function hideReadingDetail() {
-          rdCurrentDetail = null;
-          try { sessionStorage.removeItem('rd-detail'); } catch(e) {}
-          document.querySelectorAll('#page-readings .rd-detail-wrap').forEach(function(el) {
-            el.hidden = true;
-          });
-          var listing = document.querySelector('#page-readings .rd-listing');
-          if (listing) listing.style.display = '';
-          window.scrollTo(0, rdScrollPos);
+          location.hash = '#/readings';
+          setTimeout(function() { window.scrollTo(0, rdScrollPos); }, 100);
         }
-        // Restore detail on page refresh only
-        (function() {
-          try {
-            var key = sessionStorage.getItem('rd-detail');
-            if (key) {
-              // Clear it immediately so nav clicks don't restore
-              sessionStorage.removeItem('rd-detail');
-              // Only restore if we're on the readings page
-              if (location.hash === '#/readings' || location.hash === '') {
-                setTimeout(function() {
-                  var wrap = document.getElementById('rd-detail-wrap-' + key);
-                  if (wrap) {
-                    rdCurrentDetail = key;
-                    var listing = document.querySelector('#page-readings .rd-listing');
-                    if (listing) listing.style.display = 'none';
-                    document.querySelectorAll('#page-readings .rd-detail-wrap').forEach(function(el) { el.hidden = true; });
-                    wrap.hidden = false;
-                    window.scrollTo(0, 0);
-                  }
-                }, 300);
-              }
-            }
-          } catch(e) {}
-        })();
+
         function rdOrderSubmit(form) {
           var email = form.querySelector('[name="rd-email"]').value.trim();
           var url = form.getAttribute('data-stripe-url');
@@ -2081,7 +2040,12 @@
         faqs: { id: 'page-faqs', title: 'FAQs · Liny Dee Tarot' },
         terms: { id: 'page-terms', title: 'Terms of Service · Liny Dee Tarot' },
         'full-terms': { id: 'page-full-terms', title: 'Full Terms of Service · Liny Dee Tarot' },
-        books: { id: 'page-books', title: 'Books · Liny Dee Tarot' }
+        books: { id: 'page-books', title: 'Books · Liny Dee Tarot' },
+        'reading/2-question': { id: 'page-readings', title: '2 Question Tarot Reading · Liny Dee Tarot', detail: '2-question' },
+        'reading/5-question': { id: 'page-readings', title: '5 Question Tarot Reading · Liny Dee Tarot', detail: '5-question' },
+        'reading/full-month': { id: 'page-readings', title: 'Full Month Tarot Reading · Liny Dee Tarot', detail: 'full-month' },
+        'reading/6-month': { id: 'page-readings', title: '6 Month Tarot Reading · Liny Dee Tarot', detail: '6-month' },
+        'reading/12-month': { id: 'page-readings', title: '12 Month Tarot Reading · Liny Dee Tarot', detail: '12-month' }
       };
 
       function closeMenu() {
@@ -2093,16 +2057,29 @@
       function renderRoute() {
         var routeName = window.location.hash.indexOf('#/') === 0 ? window.location.hash.slice(2) : 'home';
         if (!routes[routeName]) routeName = 'home';
-        // Always reset to listing when navigating to readings page
-        if (routeName === 'readings') {
-          document.querySelectorAll('#page-readings .rd-detail-wrap').forEach(function(el) { el.hidden = true; });
-          var rdListing = document.querySelector('#page-readings .rd-listing');
-          if (rdListing) rdListing.style.display = '';
-        }
+        var detailKey = routes[routeName].detail || null;
+
         var route = routes[routeName];
         views.forEach(function (view) {
           view.hidden = view.id !== route.id;
         });
+        // Handle reading detail routes
+        if (route.id === 'page-readings') {
+          if (detailKey) {
+            var listing = document.querySelector('#page-readings .rd-listing');
+            if (listing) listing.style.display = 'none';
+            document.querySelectorAll('#page-readings .rd-detail-wrap').forEach(function(el) { el.hidden = true; });
+            var wrap = document.getElementById('rd-detail-wrap-' + detailKey);
+            if (wrap) {
+              wrap.hidden = false;
+              setTimeout(function() { window.scrollTo(0, 0); }, 50);
+            }
+          } else {
+            document.querySelectorAll('#page-readings .rd-detail-wrap').forEach(function(el) { el.hidden = true; });
+            var rdListing = document.querySelector('#page-readings .rd-listing');
+            if (rdListing) rdListing.style.display = '';
+          }
+        }
         document.title = route.title;
         Array.prototype.forEach.call(document.querySelectorAll('.nav-links a[href^="#/"]'), function (link) {
           var active = link.getAttribute('href') === '#/' + routeName;
