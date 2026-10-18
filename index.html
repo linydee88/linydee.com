@@ -1626,7 +1626,9 @@
       </div>
 
       <script>
+        var rdScrollPos = 0;
         function showReadingDetail(key) {
+          rdScrollPos = window.scrollY || window.pageYOffset;
           var listing = document.querySelector('#page-readings .rd-listing');
           if (listing) listing.style.display = 'none';
           document.querySelectorAll('#page-readings .rd-detail-wrap').forEach(function(el) {
@@ -1635,7 +1637,7 @@
           var wrap = document.getElementById('rd-detail-wrap-' + key);
           if (wrap) {
             wrap.hidden = false;
-            wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            window.scrollTo(0, 0);
           }
           try { sessionStorage.setItem('rd-detail', key); } catch(e) {}
         }
@@ -1646,9 +1648,9 @@
           var listing = document.querySelector('#page-readings .rd-listing');
           if (listing) {
             listing.style.display = '';
-            listing.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
           try { sessionStorage.removeItem('rd-detail'); } catch(e) {}
+          window.scrollTo(0, rdScrollPos);
         }
         // Restore detail view on refresh
         (function() {
