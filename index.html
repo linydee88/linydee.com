@@ -108,6 +108,9 @@
       display: none;
     }
     @media (max-width: 719px) {
+      .home-view .hero-actions a.button:not(.secondary) { order: 1; }
+      .home-view .hero-actions a[href="#/readings"].secondary { order: 2; }
+      .home-view .hero-actions a[href="#/contact"] { order: 3; }
       .site-nav { justify-content: space-between !important; }
       .home-btn-mobile {
         display: inline-flex;
