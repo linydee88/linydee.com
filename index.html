@@ -1443,6 +1443,49 @@
           margin-bottom: 16px;
         }
         #page-readings .rd-checkout-btn:hover { filter: brightness(1.06); }
+        #page-readings .rd-order-form {
+          margin: 8px 0 16px;
+        }
+        #page-readings .rd-order-form h3 {
+          font-family: var(--rd-display);
+          color: var(--rd-ink-strong);
+          text-align: center;
+          font-size: 1.6rem;
+          margin: 0 0 18px;
+          font-weight: 600;
+        }
+        #page-readings .rd-field { margin-bottom: 14px; }
+        #page-readings .rd-field label {
+          display: block;
+          color: var(--rd-gold-strong);
+          font-size: .9rem;
+          font-weight: 600;
+          margin-bottom: 6px;
+        }
+        #page-readings .rd-field input,
+        #page-readings .rd-field textarea {
+          width: 100%;
+          box-sizing: border-box;
+          background: #0e3327;
+          border: 1px solid rgba(210, 177, 99, .45);
+          border-radius: 8px;
+          color: #fff9e8;
+          padding: 14px 16px;
+          font-size: 1rem;
+          font-family: var(--rd-body);
+        }
+        #page-readings .rd-field textarea {
+          min-height: 120px;
+          resize: vertical;
+        }
+        #page-readings .rd-field input::placeholder,
+        #page-readings .rd-field textarea::placeholder { color: #8fa598; }
+        #page-readings .rd-field input:focus,
+        #page-readings .rd-field textarea:focus {
+          outline: none;
+          border-color: var(--rd-gold-strong);
+        }
+        #page-readings button.rd-checkout-btn { width: 100%; }
         #page-readings .rd-detail-wrap {
           background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(23,69,56,.9) 0%, rgba(6,28,23,1) 70%), #061c17;
           padding: 44px 0 60px;
@@ -1460,6 +1503,7 @@
         <div style="text-align: center; padding: 12px 20px 8px; background: #061c17;">
           <span style="color: #d7b66c; text-transform: uppercase; letter-spacing: .22em; font-size: .82rem; font-weight: 600;">Personal Video Tarot Readings</span>
         </div>
+        <style>@media (min-width: 720px) { #page-readings .rd-top-banner img { max-height: 280px; object-fit: cover; object-position: center; } }</style>
         <div class="rd-top-banner" style="margin: 0; padding: 0;">
           <img src="assets/banners/top-banner-liny-dee.png" alt="Liny Dee Tarot" style="width: 100%; height: auto; display: block;">
         </div>
@@ -1540,7 +1584,20 @@
               <h3>Before you order</h3>
               <p>For all Tarot services, I am required by law to disclose the following information: The information, services, and readings provided by Liny Dee Tarot cannot and should not be used as a substitute for medical, professional, or legal advice of any kind. The information and services provided are for entertainment purposes only, and all purchases must be made by those over the age of 18 or by their legal guardian in their respective locations.</p>
             </div>
-            <a class="rd-checkout-btn" href="https://buy.stripe.com/7sYcN52Xb42Y4Iufvzfbq00" target="_blank" rel="noopener noreferrer">Order your tarot reading here</a>
+            <form class="rd-order-form" data-stripe-url="https://buy.stripe.com/7sYcN52Xb42Y4Iufvzfbq00" onsubmit="return rdOrderSubmit(this)">
+              <h3>Get Your Reading Now!</h3>
+              <div class="rd-field">
+                <input type="text" name="rd-name" placeholder="Your Name" required autocomplete="name" />
+              </div>
+              <div class="rd-field">
+                <input type="email" name="rd-email" placeholder="Your Email" required autocomplete="email" />
+              </div>
+              <div class="rd-field">
+                <label for="rd-questions">Your Questions Here!</label>
+                <textarea name="rd-questions" placeholder="Type your questions here..." required></textarea>
+              </div>
+              <button class="rd-checkout-btn" type="submit">Order your tarot reading here</button>
+            </form>
           </div>
         </div>
       </div>
@@ -1560,7 +1617,20 @@
               <h3>Before you order</h3>
               <p>For all Tarot services, I am required by law to disclose the following information: The information, services, and readings provided by Liny Dee Tarot cannot and should not be used as a substitute for medical, professional, or legal advice of any kind. The information and services provided are for entertainment purposes only, and all purchases must be made by those over the age of 18 or by their legal guardian in their respective locations.</p>
             </div>
-            <a class="rd-checkout-btn" href="https://buy.stripe.com/dRm8wPapDeHC1wi6Z3fbq01" target="_blank" rel="noopener noreferrer">Order your tarot reading here</a>
+            <form class="rd-order-form" data-stripe-url="https://buy.stripe.com/dRm8wPapDeHC1wi6Z3fbq01" onsubmit="return rdOrderSubmit(this)">
+              <h3>Get Your Reading Now!</h3>
+              <div class="rd-field">
+                <input type="text" name="rd-name" placeholder="Your Name" required autocomplete="name" />
+              </div>
+              <div class="rd-field">
+                <input type="email" name="rd-email" placeholder="Your Email" required autocomplete="email" />
+              </div>
+              <div class="rd-field">
+                <label for="rd-questions">Your Questions Here!</label>
+                <textarea name="rd-questions" placeholder="Type your questions here..." required></textarea>
+              </div>
+              <button class="rd-checkout-btn" type="submit">Order your tarot reading here</button>
+            </form>
           </div>
         </div>
       </div>
@@ -1580,7 +1650,20 @@
               <h3>Before you order</h3>
               <p>For all Tarot services, I am required by law to disclose the following information: The information, services, and readings provided by Liny Dee Tarot cannot and should not be used as a substitute for medical, professional, or legal advice of any kind. The information and services provided are for entertainment purposes only, and all purchases must be made by those over the age of 18 or by their legal guardian in their respective locations.</p>
             </div>
-            <a class="rd-checkout-btn" href="https://buy.stripe.com/8x27sL7drfLG5Mycjnfbq03" target="_blank" rel="noopener noreferrer">Order your tarot reading here</a>
+            <form class="rd-order-form" data-stripe-url="https://buy.stripe.com/8x27sL7drfLG5Mycjnfbq03" onsubmit="return rdOrderSubmit(this)">
+              <h3>Get Your Reading Now!</h3>
+              <div class="rd-field">
+                <input type="text" name="rd-name" placeholder="Your Name" required autocomplete="name" />
+              </div>
+              <div class="rd-field">
+                <input type="email" name="rd-email" placeholder="Your Email" required autocomplete="email" />
+              </div>
+              <div class="rd-field">
+                <label for="rd-questions">Your Questions Here!</label>
+                <textarea name="rd-questions" placeholder="Type your questions here..." required></textarea>
+              </div>
+              <button class="rd-checkout-btn" type="submit">Order your tarot reading here</button>
+            </form>
           </div>
         </div>
       </div>
@@ -1600,7 +1683,20 @@
               <h3>Before you order</h3>
               <p>For all Tarot services, I am required by law to disclose the following information: The information, services, and readings provided by Liny Dee Tarot cannot and should not be used as a substitute for medical, professional, or legal advice of any kind. The information and services provided are for entertainment purposes only, and all purchases must be made by those over the age of 18 or by their legal guardian in their respective locations.</p>
             </div>
-            <a class="rd-checkout-btn" href="https://buy.stripe.com/bJe3cv9lz0QM0se97bfbq02" target="_blank" rel="noopener noreferrer">Order your tarot reading here</a>
+            <form class="rd-order-form" data-stripe-url="https://buy.stripe.com/bJe3cv9lz0QM0se97bfbq02" onsubmit="return rdOrderSubmit(this)">
+              <h3>Get Your Reading Now!</h3>
+              <div class="rd-field">
+                <input type="text" name="rd-name" placeholder="Your Name" required autocomplete="name" />
+              </div>
+              <div class="rd-field">
+                <input type="email" name="rd-email" placeholder="Your Email" required autocomplete="email" />
+              </div>
+              <div class="rd-field">
+                <label for="rd-questions">Your Questions Here!</label>
+                <textarea name="rd-questions" placeholder="Type your questions here..." required></textarea>
+              </div>
+              <button class="rd-checkout-btn" type="submit">Order your tarot reading here</button>
+            </form>
           </div>
         </div>
       </div>
@@ -1620,7 +1716,20 @@
               <h3>Before you order</h3>
               <p>For all Tarot services, I am required by law to disclose the following information: The information, services, and readings provided by Liny Dee Tarot cannot and should not be used as a substitute for medical, professional, or legal advice of any kind. The information and services provided are for entertainment purposes only, and all purchases must be made by those over the age of 18 or by their legal guardian in their respective locations.</p>
             </div>
-            <a class="rd-checkout-btn" href="https://buy.stripe.com/cNi3cvfJX5722Ambfjfbq04" target="_blank" rel="noopener noreferrer">Order your tarot reading here</a>
+            <form class="rd-order-form" data-stripe-url="https://buy.stripe.com/cNi3cvfJX5722Ambfjfbq04" onsubmit="return rdOrderSubmit(this)">
+              <h3>Get Your Reading Now!</h3>
+              <div class="rd-field">
+                <input type="text" name="rd-name" placeholder="Your Name" required autocomplete="name" />
+              </div>
+              <div class="rd-field">
+                <input type="email" name="rd-email" placeholder="Your Email" required autocomplete="email" />
+              </div>
+              <div class="rd-field">
+                <label for="rd-questions">Your Questions Here!</label>
+                <textarea name="rd-questions" placeholder="Type your questions here..." required></textarea>
+              </div>
+              <button class="rd-checkout-btn" type="submit">Order your tarot reading here</button>
+            </form>
           </div>
         </div>
       </div>
@@ -1650,6 +1759,13 @@
           var listing = document.querySelector('#page-readings .rd-listing');
           if (listing) listing.style.display = '';
           window.scrollTo(0, rdScrollPos);
+        }
+        function rdOrderSubmit(form) {
+          var email = form.querySelector('[name="rd-email"]').value.trim();
+          var url = form.getAttribute('data-stripe-url');
+          if (email) url += '?prefilled_email=' + encodeURIComponent(email);
+          window.open(url, '_blank', 'noopener');
+          return false;
         }
         // If user navigates away and back via nav, always show listing
         (function() {
