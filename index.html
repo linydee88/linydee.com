@@ -1637,6 +1637,7 @@
             wrap.hidden = false;
             wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
+          if (history.replaceState) history.replaceState(null, '', '#/readings/' + key);
         }
         function hideReadingDetail() {
           document.querySelectorAll('#page-readings .rd-detail-wrap').forEach(function(el) {
@@ -1647,7 +1648,20 @@
             listing.style.display = '';
             listing.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
+          if (history.replaceState) history.replaceState(null, '', '#/readings');
         }
+        // Restore detail view on refresh
+        (function() {
+          var m = location.hash.match(/^#\/readings\/([a-z0-9-]+)$/);
+          if (m) {
+            var key = m[1];
+            var wrap = document.getElementById('rd-detail-wrap-' + key);
+            if (wrap) {
+              // Wait for page to be visible
+              setTimeout(function() { showReadingDetail(key); }, 100);
+            }
+          }
+        })();
       </script>
     </section>
 
