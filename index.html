@@ -1627,7 +1627,7 @@
 
       <script>
         var rdScrollPos = 0;
-        function showReadingDetail(key) {
+        function showReadingDetail(key, pushState) {
           rdScrollPos = window.scrollY || window.pageYOffset;
           var listing = document.querySelector('#page-readings .rd-listing');
           if (listing) listing.style.display = 'none';
@@ -1640,8 +1640,11 @@
             window.scrollTo(0, 0);
           }
           try { sessionStorage.setItem('rd-detail', key); } catch(e) {}
+          if (pushState !== false && history.pushState) {
+            history.pushState({rdDetail: key}, '', '#/readings');
+          }
         }
-        function hideReadingDetail() {
+        function hideReadingDetail(popState) {
           document.querySelectorAll('#page-readings .rd-detail-wrap').forEach(function(el) {
             el.hidden = true;
           });
@@ -1650,8 +1653,23 @@
             listing.style.display = '';
           }
           try { sessionStorage.removeItem('rd-detail'); } catch(e) {}
-          window.scrollTo(0, rdScrollPos);
+          if (popState !== true) {
+            window.scrollTo(0, rdScrollPos);
+          }
         }
+        // Browser back button support
+        window.addEventListener('popstate', function(e) {
+          if (e.state && e.state.rdDetail) {
+            showReadingDetail(e.state.rdDetail, false);
+          } else {
+            // Check if we're on readings page with a detail open
+            var openDetail = document.querySelector('#page-readings .rd-detail-wrap:not([hidden])');
+            if (openDetail) {
+              hideReadingDetail(true);
+              window.scrollTo(0, rdScrollPos);
+            }
+          }
+        });
         // Restore detail view on refresh
         (function() {
           try {
