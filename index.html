@@ -1603,6 +1603,15 @@
             #page-readings .avatar-desktop { display: none !important; }
           }
         </style>
+        <style>
+          @media (min-width: 720px) {
+            #page-readings .welcome-mobile { display: none !important; }
+            #page-readings .welcome-desktop { display: block !important; }
+          }
+          @media (max-width: 719px) {
+            #page-readings .welcome-desktop { display: none !important; }
+          }
+        </style>
 
       <div class="rd-listing">
         <div style="text-align: center; padding: 4px 20px 8px; background: #061c17;">
@@ -1618,7 +1627,6 @@
             #page-readings .rd-banner-mobile { display: none !important; }
             #page-readings .rd-banner-desktop { display: block !important; }
             #page-readings .rd-top-banner img.rd-banner-desktop { max-height: none; width: 100%; max-width: 100%; object-fit: cover; }
-            #page-readings .rd-top-banner p { left: 0 !important; right: 0 !important; text-align: center !important; font-size: 1.5rem !important; }
           }
           @media (max-width: 719px) {
             #page-readings .rd-banner-desktop { display: none !important; }
@@ -1644,7 +1652,8 @@
           <img src="assets/banners/top-banner-desktop.png" alt="Liny Dee Tarot" class="rd-banner-desktop" style="width: 100%; height: auto; display: none;">
           <img src="assets/banners/liny-avatar.png" alt="Liny" class="avatar-mobile" style="position: absolute; bottom: -30px; left: 5%; width: 140px; height: auto; z-index: 10; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));" />
           <img src="assets/banners/liny-avatar-desktop.png" alt="Liny" class="avatar-desktop" style="display: none; position: absolute; bottom: -45px; left: 10%; width: 220px; height: auto; z-index: 10; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));" />
-          <p style="position: absolute; bottom: 10px; left: 42%; right: 5%; color: #f1d58d; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; text-align: center; color: #f1d58d; margin: 0; z-index: 10; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">Check out my readings below!</p>
+          <p class="welcome-mobile" style="position: absolute; bottom: 10px; left: 42%; right: 5%; color: #f1d58d; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; text-align: center; margin: 0; z-index: 10; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">Check out my readings below!</p>
+          <p class="welcome-desktop" style="display: none; position: absolute; bottom: 15px; left: 0; right: 0; color: #f1d58d; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; text-align: center; margin: 0; z-index: 10; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">Check out my readings below!</p>
         </div>
         <div class="rd-shell">
           
