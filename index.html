@@ -1328,6 +1328,11 @@
           z-index: 5;
         }
         #page-readings .rd-detail {
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+          border-radius: 0 !important;
+          padding: 0 !important;
           display: none;
           max-width: 760px;
           margin: 0 auto;
@@ -1339,7 +1344,7 @@
           position: relative;
         }
         #page-readings .rd-detail.active { display: block; }
-        #page-readings .rd-detail::after {
+        #page-readings .rd-detail::after { display: none;
           content: "\2726";
           position: absolute;
           top: -11px;
