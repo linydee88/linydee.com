@@ -1627,8 +1627,10 @@
 
       <script>
         var rdScrollPos = 0;
-        function showReadingDetail(key, pushState) {
+        var rdCurrentDetail = null;
+        function showReadingDetail(key) {
           rdScrollPos = window.scrollY || window.pageYOffset;
+          rdCurrentDetail = key;
           var listing = document.querySelector('#page-readings .rd-listing');
           if (listing) listing.style.display = 'none';
           document.querySelectorAll('#page-readings .rd-detail-wrap').forEach(function(el) {
@@ -1639,53 +1641,25 @@
             wrap.hidden = false;
             window.scrollTo(0, 0);
           }
-          try { sessionStorage.setItem('rd-detail', key); } catch(e) {}
-          if (pushState !== false && history.pushState) {
-            history.pushState({rdDetail: key}, '', '#/readings');
-          }
         }
-        function hideReadingDetail(popState) {
+        function hideReadingDetail() {
+          rdCurrentDetail = null;
           document.querySelectorAll('#page-readings .rd-detail-wrap').forEach(function(el) {
             el.hidden = true;
           });
           var listing = document.querySelector('#page-readings .rd-listing');
-          if (listing) {
-            listing.style.display = '';
-          }
-          try { sessionStorage.removeItem('rd-detail'); } catch(e) {}
-          if (popState !== true) {
-            window.scrollTo(0, rdScrollPos);
-          }
+          if (listing) listing.style.display = '';
+          window.scrollTo(0, rdScrollPos);
         }
-        // Browser back button support
-        window.addEventListener('popstate', function(e) {
-          if (e.state && e.state.rdDetail) {
-            showReadingDetail(e.state.rdDetail, false);
-          } else {
-            // Check if we're on readings page with a detail open
-            var openDetail = document.querySelector('#page-readings .rd-detail-wrap:not([hidden])');
-            if (openDetail) {
-              hideReadingDetail(true);
-              window.scrollTo(0, rdScrollPos);
-            }
-          }
-        });
-        // Restore detail view on refresh
+        // If user navigates away and back via nav, always show listing
         (function() {
-          try {
-            var key = sessionStorage.getItem('rd-detail');
-            if (key && location.hash.indexOf('#/readings') === 0) {
-              var wrap = document.getElementById('rd-detail-wrap-' + key);
-              if (wrap) {
-                setTimeout(function() {
-                  var listing = document.querySelector('#page-readings .rd-listing');
-                  if (listing) listing.style.display = 'none';
-                  document.querySelectorAll('#page-readings .rd-detail-wrap').forEach(function(el) { el.hidden = true; });
-                  wrap.hidden = false;
-                }, 200);
-              }
+          var origRender = window.renderRoute;
+          setInterval(function() {
+            if (location.hash === '#/readings' && rdCurrentDetail) {
+              var openDetail = document.querySelector('#page-readings .rd-detail-wrap:not([hidden])');
+              if (!openDetail) rdCurrentDetail = null;
             }
-          } catch(e) {}
+          }, 500);
         })();
       </script>
     </section>
@@ -2042,6 +2016,12 @@
       function renderRoute() {
         var routeName = window.location.hash.indexOf('#/') === 0 ? window.location.hash.slice(2) : 'home';
         if (!routes[routeName]) routeName = 'home';
+        // Always reset to listing when navigating to readings page
+        if (routeName === 'readings') {
+          document.querySelectorAll('#page-readings .rd-detail-wrap').forEach(function(el) { el.hidden = true; });
+          var rdListing = document.querySelector('#page-readings .rd-listing');
+          if (rdListing) rdListing.style.display = '';
+        }
         var route = routes[routeName];
         views.forEach(function (view) {
           view.hidden = view.id !== route.id;
