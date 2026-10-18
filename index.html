@@ -104,6 +104,24 @@
       background: color-mix(in srgb, var(--paper-strong) 95%, transparent);
       border-bottom: 1px solid var(--line);
     }
+    .home-btn-mobile {
+      display: none;
+    }
+    @media (max-width: 719px) {
+      .site-nav { justify-content: space-between !important; }
+      .home-btn-mobile {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 16px;
+        border: 1px solid var(--line);
+        background: var(--paper-strong);
+        color: var(--ink);
+        text-decoration: none;
+        font-size: .85rem;
+        font-weight: 600;
+        border-radius: 4px;
+      }
+    }
     .menu-toggle {
       display: inline-flex;
       align-items: center;
@@ -870,6 +888,7 @@
   </div>
 
   <nav class="site-nav" aria-label="Main navigation">
+    <a href="#/home" class="home-btn-mobile">Home</a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
       Menu
