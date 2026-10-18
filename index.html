@@ -104,6 +104,48 @@
       background: color-mix(in srgb, var(--paper-strong) 95%, transparent);
       border-bottom: 1px solid var(--line);
     }
+    .library-hero { text-align: center; padding: 40px 20px; }
+    .library-tagline { font-style: italic; color: var(--muted); font-size: 1.1rem; }
+    .lib-tabs { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 24px 0 32px; }
+    .lib-tab {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border: 1px solid var(--gold); border-radius: 8px;
+      background: rgba(11,43,34,.6); color: var(--ink); font-size: .85rem; font-weight: 600;
+      cursor: pointer; transition: all .2s;
+    }
+    .lib-tab:hover { border-color: var(--gold-2); }
+    .lib-tab.active {
+      background: linear-gradient(135deg,#caa85b,#efd38d 46%,#b78f41);
+      color: #122c23; border-color: #f2d995;
+    }
+    .lib-tab-icon { font-size: 1.1rem; }
+    .lib-books-grid { display: grid; gap: 24px; }
+    @media (min-width: 720px) {
+      .lib-books-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .lib-book-card {
+      display: flex; gap: 20px; padding: 20px;
+      background: linear-gradient(135deg, #0b2b22, #123527);
+      border: 1px solid var(--gold); border-radius: 12px;
+    }
+    .lib-cover {
+      width: 110px; height: auto; border-radius: 6px; flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,.4);
+    }
+    @media (min-width: 720px) {
+      .lib-cover { width: 140px; }
+    }
+    .lib-book-info h3 { color: var(--strong); font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; margin: 0 0 4px; }
+    .lib-author { color: var(--gold-2); font-style: italic; margin: 0 0 10px; font-size: .95rem; }
+    .lib-blurb { color: var(--muted); font-size: .92rem; margin: 0 0 12px; }
+    .lib-yt-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border-radius: 20px; font-size: .82rem; font-weight: 700;
+      background: transparent; border: 1px solid var(--gold); color: var(--gold-2);
+      text-decoration: none; transition: all .2s;
+    }
+    .lib-yt-btn:hover { background: rgba(215,182,108,.15); }
+    .lib-book-card.hidden { display: none; }
     .library-category { margin-bottom: 48px; }
     .library-category-title {
       text-align: center; color: var(--gold-2); font-family: 'Cormorant Garamond', serif;
@@ -126,7 +168,49 @@
       .home-view .hero-actions a[href="#/readings"].secondary { order: 2; }
       .home-view .hero-actions a[href="#/contact"] { order: 3; }
       .site-nav { justify-content: space-between !important; }
-      .library-category { margin-bottom: 48px; }
+      .library-hero { text-align: center; padding: 40px 20px; }
+    .library-tagline { font-style: italic; color: var(--muted); font-size: 1.1rem; }
+    .lib-tabs { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 24px 0 32px; }
+    .lib-tab {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border: 1px solid var(--gold); border-radius: 8px;
+      background: rgba(11,43,34,.6); color: var(--ink); font-size: .85rem; font-weight: 600;
+      cursor: pointer; transition: all .2s;
+    }
+    .lib-tab:hover { border-color: var(--gold-2); }
+    .lib-tab.active {
+      background: linear-gradient(135deg,#caa85b,#efd38d 46%,#b78f41);
+      color: #122c23; border-color: #f2d995;
+    }
+    .lib-tab-icon { font-size: 1.1rem; }
+    .lib-books-grid { display: grid; gap: 24px; }
+    @media (min-width: 720px) {
+      .lib-books-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .lib-book-card {
+      display: flex; gap: 20px; padding: 20px;
+      background: linear-gradient(135deg, #0b2b22, #123527);
+      border: 1px solid var(--gold); border-radius: 12px;
+    }
+    .lib-cover {
+      width: 110px; height: auto; border-radius: 6px; flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,.4);
+    }
+    @media (min-width: 720px) {
+      .lib-cover { width: 140px; }
+    }
+    .lib-book-info h3 { color: var(--strong); font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; margin: 0 0 4px; }
+    .lib-author { color: var(--gold-2); font-style: italic; margin: 0 0 10px; font-size: .95rem; }
+    .lib-blurb { color: var(--muted); font-size: .92rem; margin: 0 0 12px; }
+    .lib-yt-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border-radius: 20px; font-size: .82rem; font-weight: 700;
+      background: transparent; border: 1px solid var(--gold); color: var(--gold-2);
+      text-decoration: none; transition: all .2s;
+    }
+    .lib-yt-btn:hover { background: rgba(215,182,108,.15); }
+    .lib-book-card.hidden { display: none; }
+    .library-category { margin-bottom: 48px; }
     .library-category-title {
       text-align: center; color: var(--gold-2); font-family: 'Cormorant Garamond', serif;
       font-size: 1.6rem; margin-bottom: 8px;
@@ -2368,78 +2452,131 @@
       </div>
     </section>
     <section class="internal-page page-view books-page" id="page-library" hidden aria-labelledby="library-title">
-      <header class="page-hero">
-        <p class="eyebrow">Liny's Library</p>
+      <header class="page-hero library-hero">
+        <p class="eyebrow">&#128214; LINY'S LIBRARY &#128214;</p>
         <h1 id="library-title">Books Liny Loves</h1>
-        <p>A shelf of the books that shaped her: Gnostic gospels, Greek epics, and metaphysical classics.</p>
+        <p class="library-tagline">A shelf of the books that shaped her.<br>Gnostic gospels, Greek epics, and metaphysical classics.</p>
       </header>
       <div class="page-body">
-      <div class="library-category">
-        <h2 class="library-category-title"><span class="lib-star">✦</span> Gnostic & Early Christian Texts <span class="lib-star">✦</span></h2>
-        <p class="library-category-desc">The books that shaped Liny's understanding of hidden Christianity.</p>
-        <div class="books-grid">
-          <article class="book-card library-card">
-            <div class="library-initial">B</div>
-            <div><h3>Beyond Belief</h3><p class="book-author">Elaine Pagels</p><p>The Gnostic Gospels and what they reveal about early Christianity.</p></div>
-          </article>
-          <article class="book-card library-card">
-            <div class="library-initial">T</div>
-            <div><h3>The Gnostic Paul</h3><p class="book-author">Elaine Pagels</p><p>Paul through the eyes of the Gnostics who claimed him as their own.</p></div>
-          </article>
-          <article class="book-card library-card">
-            <div class="library-initial">T</div>
-            <div><h3>The Gnostic Bible</h3><p class="book-author">Willis Barnstone & Marvin Meyer (eds.)</p><p>First edition, non-revised. The essential collection of Gnostic scriptures.</p></div>
-          </article>
-          <article class="book-card library-card">
-            <div class="library-initial">T</div>
-            <div><h3>The Apocalypse of James</h3><p class="book-author">Nag Hammadi Library</p><p>Codex V. James receives secret teachings in this Gnostic revelation dialogue.</p></div>
-          </article>
-          <article class="book-card library-card">
-            <div class="library-initial">P</div>
-            <div><h3>Pistis Sophia</h3><p class="book-author">Bruce Codex</p><p>The Gnostic gospel of the risen Jesus teaching the mysteries of the light.</p></div>
-          </article>
+        <div class="lib-tabs" role="tablist" aria-label="Book categories">
+        <button class="lib-tab active" data-cat="all"><span class="lib-tab-icon">&#128214;</span>All Books</button>
+        <button class="lib-tab" data-cat="gnostic"><span class="lib-tab-icon">&#9765;</span>Gnostic Texts</button>
+        <button class="lib-tab" data-cat="greek-roman"><span class="lib-tab-icon">&#127963;</span>Greek & Roman Classics</button>
+        <button class="lib-tab" data-cat="early-christian"><span class="lib-tab-icon">&#128207;</span>Early Christianity</button>
+        <button class="lib-tab" data-cat="metaphysics"><span class="lib-tab-icon">&#128302;</span>Metaphysics & Mysticism</button>
+        <button class="lib-tab" data-cat="history"><span class="lib-tab-icon">&#127963;</span>History & Theology</button>
+        <button class="lib-tab" data-cat="favorites"><span class="lib-tab-icon">&#11088;</span>Personal Favorites</button>
         </div>
-      </div>
-      <div class="library-category">
-        <h2 class="library-category-title"><span class="lib-star">✦</span> Greek Classics <span class="lib-star">✦</span></h2>
-        <p class="library-category-desc">The epics and myths that started it all.</p>
-        <div class="books-grid">
-          <article class="book-card library-card">
-            <div class="library-initial">M</div>
-            <div><h3>Metamorphoses</h3><p class="book-author">Ovid</p><p>The great Roman epic of transformation, gods and mortals entwined.</p></div>
-          </article>
-          <article class="book-card library-card">
-            <div class="library-initial">T</div>
-            <div><h3>The Iliad</h3><p class="book-author">Homer</p><p>The wrath of Achilles and the glory and grief of the Trojan War.</p></div>
-          </article>
-          <article class="book-card library-card">
-            <div class="library-initial">T</div>
-            <div><h3>The Odyssey</h3><p class="book-author">Homer</p><p>Odysseus and his long journey home through monsters and gods.</p></div>
-          </article>
+        <div class="lib-books-grid" id="lib-books-grid">
+      <article class="lib-book-card" data-cats="gnostic early-christian history">
+        <img src="assets/library/beyond-belief.jpg" alt="Cover of Beyond Belief" class="lib-cover" loading="lazy">
+        <div class="lib-book-info">
+          <h3>Beyond Belief</h3>
+          <p class="lib-author">Elaine Pagels</p>
+          <p class="lib-blurb">The Gnostic Gospels and what they reveal about early Christianity.</p>
+          
         </div>
-      </div>
-      <div class="library-category">
-        <h2 class="library-category-title"><span class="lib-star">✦</span> Metaphysical Classics <span class="lib-star">✦</span></h2>
-        <p class="library-category-desc">Books on the power of thought, word, and intuition.</p>
-        <div class="books-grid">
-          <article class="book-card library-card">
-            <div class="library-initial">T</div>
-            <div><h3>The Game of Life and How to Play It</h3><p class="book-author">Florence Scovel Shinn</p><p>The metaphysical classic on the power of the spoken word.</p></div>
-          </article>
-          <article class="book-card library-card">
-            <div class="library-initial">T</div>
-            <div><h3>The Magic Path of Intuition</h3><p class="book-author">Florence Scovel Shinn</p><p>Trusting the still small voice within.</p></div>
-          </article>
-          <article class="book-card library-card">
-            <div class="library-initial">T</div>
-            <div><h3>The Secret Door to Success</h3><p class="book-author">Florence Scovel Shinn</p><p>No one can keep from you what is yours by divine right.</p></div>
-          </article>
-          <article class="book-card library-card">
-            <div class="library-initial">B</div>
-            <div><h3>Bhagavad Gita As It Is</h3><p class="book-author">A.C. Bhaktivedanta Swami Prabhupada</p><p>Krishna's timeless counsel to Arjuna on the battlefield of Kurukshetra.</p></div>
-          </article>
+      </article>
+      <article class="lib-book-card" data-cats="gnostic early-christian">
+        <img src="assets/library/gnostic-paul.jpg" alt="Cover of The Gnostic Paul" class="lib-cover" loading="lazy">
+        <div class="lib-book-info">
+          <h3>The Gnostic Paul</h3>
+          <p class="lib-author">Elaine Pagels</p>
+          <p class="lib-blurb">A compelling look at Paul's letters through a Gnostic lens, exploring mysticism, language, and the inner life.</p>
+          
         </div>
-      </div>
+      </article>
+      <article class="lib-book-card" data-cats="gnostic">
+        <img src="assets/library/gnostic-bible.jpg" alt="Cover of The Gnostic Bible" class="lib-cover" loading="lazy">
+        <div class="lib-book-info">
+          <h3>The Gnostic Bible</h3>
+          <p class="lib-author">Willis Barnstone & Marvin Meyer (eds.)</p>
+          <p class="lib-blurb">First edition. The essential collection of Gnostic scriptures, hymns, and revelations.</p>
+          
+        </div>
+      </article>
+      <article class="lib-book-card" data-cats="gnostic early-christian">
+        <img src="assets/library/apocalypse-james.jpg" alt="Cover of The Apocalypse of James" class="lib-cover" loading="lazy">
+        <div class="lib-book-info">
+          <h3>The Apocalypse of James</h3>
+          <p class="lib-author">Nag Hammadi Library</p>
+          <p class="lib-blurb">James receives secret teachings from the risen Jesus in this Gnostic revelation dialogue.</p>
+          
+        </div>
+      </article>
+      <article class="lib-book-card" data-cats="gnostic metaphysics">
+        <img src="assets/library/pistis-sophia.jpg" alt="Cover of Pistis Sophia" class="lib-cover" loading="lazy">
+        <div class="lib-book-info">
+          <h3>Pistis Sophia</h3>
+          <p class="lib-author">Bruce Codex</p>
+          <p class="lib-blurb">The Gnostic gospel of the risen Jesus teaching the mysteries of the light.</p>
+          
+        </div>
+      </article>
+      <article class="lib-book-card" data-cats="greek-roman">
+        <img src="assets/library/metamorphoses.jpg" alt="Cover of Metamorphoses" class="lib-cover" loading="lazy">
+        <div class="lib-book-info">
+          <h3>Metamorphoses</h3>
+          <p class="lib-author">Ovid</p>
+          <p class="lib-blurb">The great Roman epic of transformation, gods and mortals entwined.</p>
+          
+        </div>
+      </article>
+      <article class="lib-book-card" data-cats="greek-roman">
+        <img src="assets/library/iliad.jpg" alt="Cover of The Iliad" class="lib-cover" loading="lazy">
+        <div class="lib-book-info">
+          <h3>The Iliad</h3>
+          <p class="lib-author">Homer</p>
+          <p class="lib-blurb">The wrath of Achilles and the glory and grief of the Trojan War.</p>
+          
+        </div>
+      </article>
+      <article class="lib-book-card" data-cats="greek-roman">
+        <img src="assets/library/odyssey.jpg" alt="Cover of The Odyssey" class="lib-cover" loading="lazy">
+        <div class="lib-book-info">
+          <h3>The Odyssey</h3>
+          <p class="lib-author">Homer</p>
+          <p class="lib-blurb">Odysseus and his long journey home through monsters, gods, and temptation.</p>
+          
+        </div>
+      </article>
+      <article class="lib-book-card" data-cats="metaphysics favorites">
+        <img src="assets/library/game-of-life.jpg" alt="Cover of The Game of Life and How to Play It" class="lib-cover" loading="lazy">
+        <div class="lib-book-info">
+          <h3>The Game of Life and How to Play It</h3>
+          <p class="lib-author">Florence Scovel Shinn</p>
+          <p class="lib-blurb">The metaphysical classic on the power of the spoken word and the game of life.</p>
+          <a class="lib-yt-btn" href="https://www.youtube.com/watch?v=haZRzljtwTI" target="_blank" rel="noopener noreferrer">&#9654; Listen Free on YouTube</a>
+        </div>
+      </article>
+      <article class="lib-book-card" data-cats="metaphysics favorites">
+        <img src="assets/library/magic-path-intuition.jpg" alt="Cover of The Magic Path of Intuition" class="lib-cover" loading="lazy">
+        <div class="lib-book-info">
+          <h3>The Magic Path of Intuition</h3>
+          <p class="lib-author">Florence Scovel Shinn</p>
+          <p class="lib-blurb">Trusting the still small voice within. Ten lessons on the magic of intuition.</p>
+          <a class="lib-yt-btn" href="https://www.youtube.com/watch?v=iHvoL6xrIEs" target="_blank" rel="noopener noreferrer">&#9654; Listen Free on YouTube</a>
+        </div>
+      </article>
+      <article class="lib-book-card" data-cats="metaphysics favorites">
+        <img src="assets/library/secret-door-success.jpg" alt="Cover of The Secret Door to Success" class="lib-cover" loading="lazy">
+        <div class="lib-book-info">
+          <h3>The Secret Door to Success</h3>
+          <p class="lib-author">Florence Scovel Shinn</p>
+          <p class="lib-blurb">No one can keep from you what is yours by divine right.</p>
+          
+        </div>
+      </article>
+      <article class="lib-book-card" data-cats="metaphysics history">
+        <img src="assets/library/bhagavad-gita.jpg" alt="Cover of Bhagavad Gita As It Is" class="lib-cover" loading="lazy">
+        <div class="lib-book-info">
+          <h3>Bhagavad Gita As It Is</h3>
+          <p class="lib-author">A.C. Bhaktivedanta Swami Prabhupada</p>
+          <p class="lib-blurb">Krishna's timeless counsel to Arjuna on the battlefield of Kurukshetra.</p>
+          
+        </div>
+      </article>
+        </div>
       </div>
     </section>
   </main>
