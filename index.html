@@ -1552,22 +1552,22 @@
           background: #061c17;
           padding: 4px 20px 8px;
         }
-        /* Peeking Liny avatar hanging onto the detail banner (mobile + desktop) */
+        /* Peeking Liny avatar over the detail banner (mobile + desktop) */
         #page-readings .rd-peek {
           position: absolute;
-          top: 8px;
+          top: 0;
           left: 50%;
-          width: min(36%, 210px);
+          width: min(75%, 440px);
           height: auto;
-          transform: translateX(-50%);
+          transform: translate(-50%, -60%);
           pointer-events: none;
           z-index: 4;
           animation: rd-peek-in .65s cubic-bezier(.2,.9,.3,1.2) both;
         }
         @keyframes rd-peek-in {
-          0% { transform: translateX(-50%) scale(.55); opacity: 0; }
-          60% { transform: translateX(-50%) scale(1.06); opacity: 1; }
-          100% { transform: translateX(-50%) scale(1); opacity: 1; }
+          0% { transform: translate(-50%, -60%) scale(.55); opacity: 0; }
+          60% { transform: translate(-50%, -60%) scale(1.06); opacity: 1; }
+          100% { transform: translate(-50%, -60%) scale(1); opacity: 1; }
         }
         #page-readings .rd-gold-div { display: none; }
         @media (max-width: 719px) {
@@ -1689,10 +1689,10 @@
           display: block;
         }
         #page-readings .rd-detail-hero img.rd-peek {
-          width: min(36%, 210px);
+          width: min(75%, 440px);
         }
         /* Space below the nav so the peeking avatar clears it */
-        #page-readings .rd-detail-wrap { padding-top: 80px; }
+        #page-readings .rd-detail-wrap { padding-top: 120px; }
         #page-readings .rd-back-circle {
           position: absolute;
           top: 16px;
