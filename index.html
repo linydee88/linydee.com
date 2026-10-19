@@ -1595,6 +1595,23 @@
         #page-readings .rd-thumb {
           position: relative;
         }
+        /* Peeking Liny avatar over the detail banner */
+        #page-readings .rd-peek {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          width: min(62%, 360px);
+          height: auto;
+          transform: translate(-50%, -70%);
+          pointer-events: none;
+          z-index: 4;
+          animation: rd-peek-in .65s cubic-bezier(.2,.9,.3,1.2) both;
+        }
+        @keyframes rd-peek-in {
+          0% { transform: translate(-50%, -70%) scale(.55); opacity: 0; }
+          60% { transform: translate(-50%, -70%) scale(1.06); opacity: 1; }
+          100% { transform: translate(-50%, -70%) scale(1); opacity: 1; }
+        }
         #page-readings .rd-thumb .rd-stars {
           position: absolute;
           bottom: 8px;
@@ -2074,6 +2091,7 @@
           <div class="rd-detail active" id="rd-detail-2-question">
             <div class="rd-detail-hero" style="position: relative; margin: 0 -20px; width: calc(100% + 40px);">
               <img src="assets/banners/detail-2-question.jpg" alt="2 Question Tarot reading artwork" style="width: 100%; height: auto; display: block;" />
+              <img src="assets/banners/liny-peek.png" alt="Liny Dee peeking over the banner" class="rd-peek" />
               <button class="rd-back-circle" onclick="hideReadingDetail()" aria-label="Back" style="position: absolute; top: 16px; left: 16px; width: 44px; height: 44px; border-radius: 50%; background: rgba(6,28,23,.7); border: 1px solid rgba(210,177,99,.5); color: #f1d58d; font-size: 20px; cursor: pointer; z-index: 5;"><span style="font-family: Georgia, serif; font-size: 22px; line-height: 1; transform: translateX(-1px); display: inline-block;">‹</span></button>
             </div>
             <div style="text-align: center; padding: 16px 20px 0; margin-bottom: 24px;">
