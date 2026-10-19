@@ -1513,6 +1513,7 @@
         #page-readings .rd-socialband {
           background: #061c17;
         }
+        #page-readings .rd-gold-div { display: none; }
         @media (max-width: 719px) {
           #page-readings .rd-listing {
             background:
@@ -1522,6 +1523,47 @@
           }
           #page-readings .rd-socialband {
             background: url("assets/banners/sage-slice-3.png") center / cover no-repeat;
+            position: relative;
+          }
+          #page-readings .rd-socialband::before {
+            content: "";
+            position: absolute;
+            inset: -2px -24px;
+            background: rgba(4, 24, 19, .52);
+            filter: blur(24px);
+            border-radius: 45%;
+            pointer-events: none;
+          }
+          #page-readings .rd-socialband > div,
+          #page-readings .rd-socialband > span { position: relative; z-index: 1; }
+          #page-readings .rd-socialband > span {
+            color: #e0b34c !important;
+            font-family: 'Cormorant Garamond', serif !important;
+            font-size: .95rem !important;
+            letter-spacing: .24em !important;
+          }
+          #page-readings .rd-gold-div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 5px auto 0;
+            max-width: 300px;
+            position: relative;
+            z-index: 1;
+            color: #e0b34c;
+            font-size: .72rem;
+            line-height: 1;
+          }
+          #page-readings .rd-gold-div::before,
+          #page-readings .rd-gold-div::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: linear-gradient(to right, transparent, rgba(224,179,76,.9));
+          }
+          #page-readings .rd-gold-div::after {
+            background: linear-gradient(to left, transparent, rgba(224,179,76,.9));
           }
         }
         #page-readings .rd-thumb {
@@ -1830,6 +1872,7 @@
             <a href="https://www.youtube.com/@LinyDeeTarot" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: none; margin: 0 10px; font-size: .85rem; font-weight: 600;">YouTube</a>
           </div>
           <span style="color: #d7b66c; text-transform: uppercase; letter-spacing: .22em; font-size: .82rem; font-weight: 600;">Personal Video Tarot Readings</span>
+          <div class="rd-gold-div" aria-hidden="true">✦</div>
         </div>
         <style>@media (min-width: 720px) {
             #page-readings .rd-banner-mobile { display: none !important; }
