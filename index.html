@@ -1691,22 +1691,18 @@
         #page-readings .rd-detail-hero img.rd-peek {
           width: min(75%, 440px);
         }
-        /* 5-question avatar sits fully atop the banner so the title stays clear */
-        #page-readings .rd-peek-5q {
+        /* Atop variant: sits fully above the banner so titles stay clear */
+        #page-readings .rd-peek-atop {
           transform: translate(-50%, -88%);
-          animation-name: rd-peek-in-5q;
+          animation-name: rd-peek-in-atop;
         }
-        @keyframes rd-peek-in-5q {
+        @keyframes rd-peek-in-atop {
           0% { transform: translate(-50%, -88%) scale(.55); opacity: 0; }
           60% { transform: translate(-50%, -88%) scale(1.06); opacity: 1; }
           100% { transform: translate(-50%, -88%) scale(1); opacity: 1; }
         }
-        /* Space below the nav so the peeking avatar clears it */
-        #page-readings .rd-detail-wrap { padding-top: 185px; }
-        /* 5-question page: tuned headroom */
-        #page-readings #rd-detail-wrap-5-question { padding-top: 258px; }
-        /* 2-question matches the 5-question spacing */
-        #page-readings #rd-detail-wrap-2-question { padding-top: 258px; }
+        /* Space below the nav so the peeking avatar clears it (all detail pages) */
+        #page-readings .rd-detail-wrap { padding-top: 258px; }
         #page-readings .rd-back-circle {
           position: absolute;
           top: 16px;
@@ -2142,7 +2138,7 @@
           <div class="rd-detail active" id="rd-detail-5-question">
             <div class="rd-detail-hero" style="position: relative; margin: 0 -20px; width: calc(100% + 40px);">
               <img src="assets/banners/detail-5-question.jpg" alt="5 Question Tarot reading artwork" style="width: 100%; height: auto; display: block;" />
-              <img src="assets/banners/liny-peek-5q.png" alt="Liny Dee peeking over the banner" class="rd-peek rd-peek-5q" />
+              <img src="assets/banners/liny-peek-5q.png" alt="Liny Dee peeking over the banner" class="rd-peek rd-peek-atop" />
               <button class="rd-back-circle" onclick="hideReadingDetail()" aria-label="Back" style="position: absolute; top: 16px; left: 16px; width: 44px; height: 44px; border-radius: 50%; background: rgba(6,28,23,.7); border: 1px solid rgba(210,177,99,.5); color: #f1d58d; font-size: 20px; cursor: pointer; z-index: 5;"><span style="font-family: Georgia, serif; font-size: 22px; line-height: 1; transform: translateX(-1px); display: inline-block;">‹</span></button>
             </div>
             <div style="text-align: center; padding: 16px 20px 0; margin-bottom: 24px;">
@@ -2175,6 +2171,7 @@
           <div class="rd-detail active" id="rd-detail-full-month">
             <div class="rd-detail-hero" style="position: relative; margin: 0 -20px; width: calc(100% + 40px);">
               <img src="assets/banners/detail-full-month.jpg" alt="Full Month Tarot reading artwork" style="width: 100%; height: auto; display: block;" />
+              <img src="assets/banners/liny-peek-fullmonth.png" alt="Liny Dee peeking over the banner" class="rd-peek rd-peek-atop" />
               <button class="rd-back-circle" onclick="hideReadingDetail()" aria-label="Back" style="position: absolute; top: 16px; left: 16px; width: 44px; height: 44px; border-radius: 50%; background: rgba(6,28,23,.7); border: 1px solid rgba(210,177,99,.5); color: #f1d58d; font-size: 20px; cursor: pointer; z-index: 5;"><span style="font-family: Georgia, serif; font-size: 22px; line-height: 1; transform: translateX(-1px); display: inline-block;">‹</span></button>
             </div>
             <div style="text-align: center; padding: 16px 20px 0; margin-bottom: 24px;">
@@ -2237,6 +2234,7 @@
           <div class="rd-detail active" id="rd-detail-12-month">
             <div class="rd-detail-hero" style="position: relative; margin: 0 -20px; width: calc(100% + 40px);">
               <img src="assets/banners/detail-12-month.jpg" alt="12 Month Tarot reading artwork" style="width: 100%; height: auto; display: block;" />
+              <img src="assets/banners/liny-peek-12month.png" alt="Liny Dee peeking over the banner" class="rd-peek rd-peek-atop" />
               <button class="rd-back-circle" onclick="hideReadingDetail()" aria-label="Back" style="position: absolute; top: 16px; left: 16px; width: 44px; height: 44px; border-radius: 50%; background: rgba(6,28,23,.7); border: 1px solid rgba(210,177,99,.5); color: #f1d58d; font-size: 20px; cursor: pointer; z-index: 5;"><span style="font-family: Georgia, serif; font-size: 22px; line-height: 1; transform: translateX(-1px); display: inline-block;">‹</span></button>
             </div>
             <div style="text-align: center; padding: 16px 20px 0; margin-bottom: 24px;">
