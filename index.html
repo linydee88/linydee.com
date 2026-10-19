@@ -70,6 +70,8 @@
     a { color: inherit; }
     button, a { -webkit-tap-highlight-color: transparent; }
     :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    /* Headings focused by the router (screen-reader announcement) don't need a visible box */
+    h1[tabindex="-1"]:focus, h2[tabindex="-1"]:focus { outline: none; }
     .skip-link {
       position: absolute;
       left: -9999px;
@@ -2724,6 +2726,7 @@
         toggle.setAttribute('aria-expanded', 'false');
       }
 
+      var firstRender = true;
       function renderRoute() {
         var routeName = window.location.hash.indexOf('#/') === 0 ? window.location.hash.slice(2) : 'home';
         if (!routes[routeName]) routeName = 'home';
@@ -2759,6 +2762,21 @@
         });
         closeMenu();
         window.scrollTo(0, 0);
+        // Move keyboard/screen-reader focus to the new view's heading (skip on first load)
+        if (!firstRender) {
+          var activeView = document.getElementById(route.id);
+          if (activeView) {
+            var headings = activeView.querySelectorAll('h1, h2');
+            for (var i = 0; i < headings.length; i++) {
+              if (headings[i].offsetParent !== null) {
+                headings[i].setAttribute('tabindex', '-1');
+                headings[i].focus({ preventScroll: true });
+                break;
+              }
+            }
+          }
+        }
+        firstRender = false;
       }
 
       if (toggle && links) {
