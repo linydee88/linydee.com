@@ -1692,6 +1692,16 @@
           60% { transform: translate(-50%, -88%) scale(1.06); opacity: 1; }
           100% { transform: translate(-50%, -88%) scale(1); opacity: 1; }
         }
+        /* 2-question: wide low hair, sits strictly atop with no overlap */
+        #page-readings .rd-peek-2q {
+          transform: translate(-50%, -100%);
+          animation-name: rd-peek-in-2q;
+        }
+        @keyframes rd-peek-in-2q {
+          0% { transform: translate(-50%, -100%) scale(.55); opacity: 0; }
+          60% { transform: translate(-50%, -100%) scale(1.06); opacity: 1; }
+          100% { transform: translate(-50%, -100%) scale(1); opacity: 1; }
+        }
         #page-readings .rd-back-circle {
           position: absolute;
           top: 16px;
@@ -2096,7 +2106,7 @@
           <div class="rd-detail active" id="rd-detail-2-question">
             <div class="rd-detail-hero" style="position: relative; margin: 0 -20px; width: calc(100% + 40px);">
               <img src="assets/banners/detail-2-question.jpg" alt="2 Question Tarot reading artwork" style="width: 100%; height: auto; display: block;" />
-              <img src="assets/banners/liny-peek.png" alt="Liny Dee peeking over the banner" class="rd-peek rd-peek-atop" />
+              <img src="assets/banners/liny-peek.png" alt="Liny Dee peeking over the banner" class="rd-peek rd-peek-2q" />
               <a class="rd-back-circle" href="#/reading/12-month" aria-label="Previous reading: 12 Month Tarot" style="position: absolute; top: 16px; left: 16px; width: 44px; height: 44px; border-radius: 50%; background: rgba(6,28,23,.7); border: 1px solid rgba(210,177,99,.5); color: #f1d58d; font-size: 20px; cursor: pointer; z-index: 5; text-decoration: none;"><span style="font-family: Georgia, serif; font-size: 22px; line-height: 1; transform: translateX(-1px); display: inline-block;">‹</span></a>
               <a class="rd-back-circle" href="#/reading/5-question" aria-label="Next reading: 5 Question Tarot" style="position: absolute; top: 16px; left: auto; right: 16px; width: 44px; height: 44px; border-radius: 50%; background: rgba(6,28,23,.7); border: 1px solid rgba(210,177,99,.5); color: #f1d58d; font-size: 20px; cursor: pointer; z-index: 5; text-decoration: none;"><span style="font-family: Georgia, serif; font-size: 22px; line-height: 1; transform: translateX(1px); display: inline-block;">›</span></a>
             </div>
