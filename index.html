@@ -120,7 +120,6 @@
       background: color-mix(in srgb, var(--paper-strong) 95%, transparent);
       border-bottom: 1px solid var(--line);
     }
-    .nav-tagline { display: none; }
     .library-hero { text-align: center; padding: 40px 20px; }
     .library-tagline { font-style: italic; color: var(--muted); font-size: 1.1rem; }
     .lib-tabs { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 24px 0 32px; }
@@ -185,24 +184,6 @@
       .home-view .hero-actions a[href="#/readings"].secondary { order: 2; }
       .home-view .hero-actions a[href="#/contact"] { order: 3; }
       .site-nav { justify-content: space-between !important; }
-      body.on-readings .nav-tagline {
-        display: block;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        color: #e0b34c;
-        font-family: 'Cormorant Garamond', serif;
-        font-size: .58rem;
-        letter-spacing: .1em;
-        text-transform: uppercase;
-        white-space: nowrap;
-        pointer-events: none;
-        max-width: 60%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      body.on-readings .nav-tagline .nav-tag-num { font-size: 1.25em; }
       .library-hero { text-align: center; padding: 40px 20px; }
     .library-tagline { font-style: italic; color: var(--muted); font-size: 1.1rem; }
     .lib-tabs { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 24px 0 32px; }
@@ -1041,8 +1022,7 @@
 
   <nav class="site-nav" aria-label="Main navigation">
     <a href="#/home" class="home-btn-mobile">Home</a>
-    <span class="nav-tagline" aria-hidden="true"><span class="nav-tag-num">20+</span> Years of Gnostic Tarot</span>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
       Menu
     </button>
@@ -1582,12 +1562,23 @@
           #page-readings .rd-socialband::before {
             content: "";
             position: absolute;
-            inset: -2px 0;
+            inset: -26px 0 -2px;
             background: rgba(4, 24, 19, .72);
             filter: blur(24px);
             border-radius: 45%;
             pointer-events: none;
           }
+          /* Tagline relocated from the nav: sits below it, above the socials */
+          #page-readings .rd-band-tagline {
+            color: #e0b34c;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: .72rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            margin-bottom: 12px;
+          }
+          #page-readings .rd-band-tagline .rd-band-tag-num { font-size: 1.25em; }
           #page-readings .rd-socialband > div,
           #page-readings .rd-socialband > span { position: relative; z-index: 1; }
           #page-readings .rd-socialband > div:first-child { margin-bottom: 0 !important; }
@@ -1923,6 +1914,7 @@
 
       <div class="rd-listing">
         <div class="rd-socialband" style="text-align: center;">
+          <div class="rd-band-tagline" aria-hidden="true"><span class="rd-band-tag-num">20+</span> Years of Gnostic Tarot</div>
           <div style="margin-bottom: 6px;">
             <a href="https://www.tiktok.com/@linydeetarot" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: none; margin: 0 10px; font-size: .85rem; font-weight: 600;">TikTok</a>
             <a href="https://facebook.com/liny.dee1" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: none; margin: 0 10px; font-size: .85rem; font-weight: 600;">Facebook</a>
@@ -2813,7 +2805,6 @@
           }
         }
         document.title = route.title;
-        document.body.classList.toggle('on-readings', routeName === 'readings');
         Array.prototype.forEach.call(document.querySelectorAll('.nav-links a[href^="#/"]'), function (link) {
           var active = link.getAttribute('href') === '#/' + routeName;
           if (active) link.setAttribute('aria-current', 'page');
