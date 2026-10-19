@@ -72,7 +72,7 @@
     :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
 
     .booking-strip {
-      background: #21483d;
+      background: #4f7263;
       color: #fff;
       padding: 9px 12px;
       text-align: center;
@@ -229,7 +229,7 @@
         align-items: center;
         padding: 8px 16px;
         border: 1px solid var(--line);
-        background: var(--paper-strong);
+        background: #1e4033;
         color: var(--ink);
         text-decoration: none;
         font-size: .85rem;
@@ -242,7 +242,7 @@
       align-items: center;
       gap: 9px;
       border: 1px solid var(--line);
-      background: var(--paper-strong);
+      background: #1e4033;
       color: var(--ink);
       padding: 9px 12px;
       font: 600 .78rem/1 var(--sans);
@@ -1357,7 +1357,7 @@
         }
         /* ---------- Listing band ---------- */
         #page-readings .rd-listing {
-          background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(23,69,56,.9) 0%, rgba(6,28,23,1) 70%), #061c17;
+          background: #8aa48a url("assets/banners/sage-cloud-bg.png") center top / cover no-repeat;
           padding: 44px 0 60px;
         }
         #page-readings .rd-shell {
@@ -1504,6 +1504,11 @@
           transform: rotate(-12deg);
           filter: drop-shadow(0 3px 5px rgba(0,0,0,.45));
           pointer-events: none;
+        }
+        #page-readings .rd-banner-mobile,
+        #page-readings .rd-banner-desktop {
+          -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
         }
         #page-readings .rd-thumb {
           position: relative;
