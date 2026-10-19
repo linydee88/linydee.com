@@ -1514,7 +1514,7 @@
           background: #061c17;
         }
         @media (max-width: 719px) {
-          .site-nav {
+          body.on-readings .site-nav {
             background: url("assets/banners/sage-slice-1.png") center / cover no-repeat;
           }
           #page-readings .rd-listing {
@@ -2710,6 +2710,7 @@
           }
         }
         document.title = route.title;
+        document.body.classList.toggle('on-readings', routeName === 'readings');
         Array.prototype.forEach.call(document.querySelectorAll('.nav-links a[href^="#/"]'), function (link) {
           var active = link.getAttribute('href') === '#/' + routeName;
           if (active) link.setAttribute('aria-current', 'page');
