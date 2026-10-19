@@ -2210,9 +2210,11 @@
         var rdScrollPos = 0;
         function showReadingDetail(key) {
           rdScrollPos = window.scrollY || window.pageYOffset;
+          window.rdLastTrigger = document.activeElement;
           location.hash = '#/reading/' + key;
         }
         function hideReadingDetail() {
+          window.rdReturningFocus = window.rdLastTrigger || null;
           location.hash = '#/readings';
           setTimeout(function() { window.scrollTo(0, rdScrollPos); }, 100);
         }
@@ -2762,16 +2764,23 @@
         });
         closeMenu();
         window.scrollTo(0, 0);
-        // Move keyboard/screen-reader focus to the new view's heading (skip on first load)
+        // Move keyboard/screen-reader focus to the new view's heading (skip on first load).
+        // Exception: the detail back button restores focus to the card you came from.
         if (!firstRender) {
-          var activeView = document.getElementById(route.id);
-          if (activeView) {
-            var headings = activeView.querySelectorAll('h1, h2');
-            for (var i = 0; i < headings.length; i++) {
-              if (headings[i].offsetParent !== null) {
-                headings[i].setAttribute('tabindex', '-1');
-                headings[i].focus({ preventScroll: true });
-                break;
+          var returnEl = window.rdReturningFocus || null;
+          window.rdReturningFocus = null;
+          if (returnEl && returnEl.offsetParent !== null) {
+            returnEl.focus({ preventScroll: true });
+          } else {
+            var activeView = document.getElementById(route.id);
+            if (activeView) {
+              var headings = activeView.querySelectorAll('h1, h2');
+              for (var i = 0; i < headings.length; i++) {
+                if (headings[i].offsetParent !== null) {
+                  headings[i].setAttribute('tabindex', '-1');
+                  headings[i].focus({ preventScroll: true });
+                  break;
+                }
               }
             }
           }
