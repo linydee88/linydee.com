@@ -1545,27 +1545,13 @@
             white-space: nowrap !important;
           }
           #page-readings .rd-gold-div {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin: 5px auto 0;
+            display: block;
+            height: 12px;
+            margin: 4px auto 0;
             max-width: 300px;
             position: relative;
             z-index: 1;
-            color: #e0b34c;
-            font-size: .72rem;
-            line-height: 1;
-          }
-          #page-readings .rd-gold-div::before,
-          #page-readings .rd-gold-div::after {
-            content: "";
-            height: 1px;
-            flex: 1;
-            background: linear-gradient(to right, transparent, rgba(224,179,76,.9));
-          }
-          #page-readings .rd-gold-div::after {
-            background: linear-gradient(to left, transparent, rgba(224,179,76,.9));
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='12' viewBox='0 0 300 12'%3E%3Cline x1='0' y1='6' x2='128' y2='6' stroke='%23e0b34c' stroke-width='1' opacity='0.85'/%3E%3Cline x1='172' y1='6' x2='300' y2='6' stroke='%23e0b34c' stroke-width='1' opacity='0.85'/%3E%3Cpath d='M150 1 L153.5 6 L150 11 L146.5 6 Z' fill='%23e0b34c'/%3E%3C/svg%3E") center / contain no-repeat;
           }
         }
         #page-readings .rd-thumb {
@@ -1874,7 +1860,7 @@
             <a href="https://www.youtube.com/@LinyDeeTarot" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: none; margin: 0 10px; font-size: .85rem; font-weight: 600;">YouTube</a>
           </div>
           <span style="color: #d7b66c; text-transform: uppercase; letter-spacing: .22em; font-size: .82rem; font-weight: 600;">Personal Video Tarot Readings</span>
-          <div class="rd-gold-div" aria-hidden="true">✦</div>
+          <div class="rd-gold-div" aria-hidden="true"></div>
         </div>
         <style>@media (min-width: 720px) {
             #page-readings .rd-banner-mobile { display: none !important; }
