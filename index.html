@@ -1476,6 +1476,34 @@
           border: 2px solid #d7b66c;
           z-index: 2;
         }
+        #page-readings .rd-price-badge .rd-was {
+          position: relative;
+          opacity: .55;
+          font-weight: 400;
+          white-space: nowrap;
+        }
+        #page-readings .rd-price-badge .rd-was::after {
+          content: "";
+          position: absolute;
+          left: -3px;
+          right: -3px;
+          top: 54%;
+          height: 2px;
+          background: #122c23;
+          transform: rotate(-4deg);
+          border-radius: 2px;
+        }
+        #page-readings .rd-sale-burst {
+          position: absolute;
+          top: 6px;
+          right: 6px;
+          width: 74px;
+          height: 74px;
+          z-index: 3;
+          transform: rotate(12deg);
+          filter: drop-shadow(0 3px 5px rgba(0,0,0,.45));
+          pointer-events: none;
+        }
         #page-readings .rd-thumb {
           position: relative;
         }
@@ -1847,12 +1875,13 @@
             <article class="rd-card">
               <div class="rd-thumb">
                 <img src="assets/banners/thumb-5-question.jpg" alt="5 Question Tarot" loading="lazy" />
-                <span class="rd-price-badge"><s style="opacity:.55;font-weight:400;">$75</s> $45</span>
+                <svg class="rd-sale-burst" viewBox="0 0 100 100" role="img" aria-label="Sale"><polygon points="50.0,0.0 58.0,9.8 69.1,3.8 72.8,15.9 85.4,14.6 84.1,27.2 96.2,30.9 90.2,42.0 100.0,50.0 90.2,58.0 96.2,69.1 84.1,72.8 85.4,85.4 72.8,84.1 69.1,96.2 58.0,90.2 50.0,100.0 42.0,90.2 30.9,96.2 27.2,84.1 14.6,85.4 15.9,72.8 3.8,69.1 9.8,58.0 0.0,50.0 9.8,42.0 3.8,30.9 15.9,27.2 14.6,14.6 27.2,15.9 30.9,3.8 42.0,9.8" fill="#d7263d"/><circle cx="50" cy="50" r="33" fill="none" stroke="#ffffff" stroke-width="2" opacity=".85"/><text x="50" y="59" text-anchor="middle" font-family="Manrope,Arial,sans-serif" font-size="21" font-weight="900" fill="#ffffff" letter-spacing="1">SALE</text></svg>
+                <span class="rd-price-badge"><span class="rd-was">$75</span> $45</span>
                 
               </div>
               <div class="rd-body">
                 <h3 class="rd-title">5 Question Reading</h3>
-                <p class="rd-desc">You Can Send Me 1 to 5 Tarot Questions and I Will Send You A Video Tarot Reading With The Answer!</p>
+                <p class="rd-desc">You Can Send Me 1 to 5 Tarot Questions and I Will Send You A Video Tarot Reading With The Answer! Sale runs till December 29th.</p>
               <div class="rd-btns-desktop" style="display:none;">
                 <button type="button" onclick="showReadingDetail('5-question')" style="display:block!important;width:100%!important;flex:none!important;padding:8px 10px!important;font-size:13px!important;font-weight:700!important;text-align:center!important;box-sizing:border-box!important;margin:0!important;border:1px solid #f2d995!important;border-radius:8px!important;background:linear-gradient(135deg,#caa85b,#efd38d 46%,#b78f41)!important;color:#122c23!important;font-family:Manrope,sans-serif!important;cursor:pointer!important;white-space:normal!important;">View Details</button>
                 <a href="https://buy.stripe.com/bJe5kD9lz572grcervfbq05" target="_blank" rel="noopener noreferrer" style="display:block!important;width:100%!important;flex:none!important;padding:8px 10px!important;font-size:13px!important;font-weight:700!important;text-align:center!important;box-sizing:border-box!important;margin:0!important;border:1px solid #f2d995!important;border-radius:8px!important;background:linear-gradient(135deg,#caa85b,#efd38d 46%,#b78f41)!important;color:#122c23!important;font-family:Manrope,sans-serif!important;cursor:pointer!important;white-space:normal!important;text-decoration:none!important;">Pay with Card<span style="display:inline-flex;gap:4px;margin-left:8px;vertical-align:middle;"><span style="background:#fff;color:#1a1f71;font-size:9px;font-weight:900;padding:2px 5px;border-radius:3px;letter-spacing:.5px;">VISA</span><span style="background:#fff;color:#000;font-size:9px;font-weight:900;padding:2px 5px;border-radius:3px;">MC</span><span style="background:#fff;color:#000;font-size:9px;font-weight:700;padding:2px 5px;border-radius:3px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px;"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8.78-.16 2.05-.93 3.57-.84 1.54.13 2.7.73 3.47 1.87-3.16 1.9-2.63 6.02-.87 7.7-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg> Pay</span><span style="background:#fff;color:#000;font-size:9px;font-weight:700;padding:2px 5px;border-radius:3px;">G Pay</span></span></a>
