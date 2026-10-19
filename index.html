@@ -187,15 +187,20 @@
       .site-nav { justify-content: space-between !important; }
       body.on-readings .nav-tagline {
         display: block;
-        flex: 1;
-        text-align: center;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
         color: #e0b34c;
         font-family: 'Cormorant Garamond', serif;
-        font-size: .66rem;
-        letter-spacing: .12em;
+        font-size: .58rem;
+        letter-spacing: .1em;
         text-transform: uppercase;
         white-space: nowrap;
-        padding: 0 6px;
+        pointer-events: none;
+        max-width: 60%;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       body.on-readings .nav-tagline .nav-tag-num { font-size: 1.25em; }
       .library-hero { text-align: center; padding: 40px 20px; }
