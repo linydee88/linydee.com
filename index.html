@@ -3114,12 +3114,14 @@
       }
 
       var firstRender = true;
+      var prevRouteId = null;
       function renderRoute() {
         var routeName = window.location.hash.indexOf('#/') === 0 ? window.location.hash.slice(2) : 'home';
         if (!routes[routeName]) routeName = 'home';
         var detailKey = routes[routeName].detail || null;
 
         var route = routes[routeName];
+        var stayPut = prevRouteId === 'page-myth' && route.id === 'page-myth';
         views.forEach(function (view) {
           view.hidden = view.id !== route.id;
         });
@@ -3147,7 +3149,7 @@
           var mythWrap = document.getElementById('myth-detail-wrap-' + detailKey);
           if (mythWrap) {
             mythWrap.hidden = false;
-            setTimeout(function() { window.scrollTo(0, 0); }, 50);
+            if (!stayPut) setTimeout(function() { window.scrollTo(0, 0); }, 50);
           }
         }
         document.title = route.title;
@@ -3157,7 +3159,7 @@
           else link.removeAttribute('aria-current');
         });
         closeMenu();
-        window.scrollTo(0, 0);
+        if (!stayPut) window.scrollTo(0, 0);
         // Move keyboard/screen-reader focus to the new view's heading (skip on first load).
         // Exception: the detail back button restores focus to the card you came from.
         if (!firstRender) {
@@ -3180,6 +3182,7 @@
           }
         }
         firstRender = false;
+        prevRouteId = route.id;
       }
 
       if (toggle && links) {
