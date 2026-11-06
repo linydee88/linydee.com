@@ -2927,6 +2927,63 @@
           font-weight: 600;
           font-size: .95rem;
         }
+        #page-myth .myth-arrow {
+          position: absolute;
+          top: 16px;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          background: rgba(6, 28, 23, .7);
+          border: 1px solid rgba(210, 177, 99, .5);
+          color: #f1d58d;
+          font-size: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 5;
+          text-decoration: none;
+        }
+        #page-myth .myth-arrow span {
+          font-family: Georgia, serif;
+          font-size: 22px;
+          line-height: 1;
+          display: inline-block;
+        }
+        #page-myth .myth-arrow-prev { left: 16px; }
+        #page-myth .myth-arrow-prev span { transform: translateX(-1px); }
+        #page-myth .myth-arrow-next { left: auto; right: 16px; }
+        #page-myth .myth-arrow-next span { transform: translateX(1px); }
+        #page-myth .myth-nav-label {
+          margin: 22px 0 10px;
+          color: var(--myth-gold);
+          font-size: .72rem;
+          font-weight: 700;
+          letter-spacing: .2em;
+          text-transform: uppercase;
+        }
+        #page-myth .myth-nav-list {
+          list-style: none;
+          margin: 0 0 18px;
+          padding: 0;
+          border-top: 1px solid var(--myth-line);
+        }
+        #page-myth .myth-nav-list li { border-bottom: 1px solid var(--myth-line); }
+        #page-myth .myth-nav-list a {
+          display: block;
+          padding: 12px 4px;
+          color: var(--myth-ink);
+          text-decoration: none;
+          font-size: 1rem;
+        }
+        #page-myth .myth-nav-list a:hover { color: var(--myth-gold-strong); }
+        #page-myth .myth-nav-list .myth-nav-current {
+          display: block;
+          padding: 12px 4px;
+          color: var(--myth-gold-strong);
+          font-weight: 700;
+          font-size: 1rem;
+        }
         @media (max-width: 640px) {
           #page-myth .myth-card-btn { flex-direction: column; align-items: stretch; gap: 18px; }
           #page-myth .myth-thumb { flex: none; width: 100%; }
@@ -2984,7 +3041,15 @@
             <h2>The History and Mythology of the Goddess Athena</h2>
             <div class="myth-video">
               <iframe src="https://www.youtube.com/embed/rsElNeZZ1UY" title="The History and Mythology of the Goddess Athena" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <a class="myth-arrow myth-arrow-prev" href="#/myth/medusa" aria-label="Previous video: The History and Mythology of the Gorgon Medusa"><span>‹</span></a>
+              <a class="myth-arrow myth-arrow-next" href="#/myth/momus" aria-label="Next video: The History and Mythology of the Greek God Momus"><span>›</span></a>
             </div>
+            <p class="myth-nav-label">More Myth Videos</p>
+            <ul class="myth-nav-list">
+              <li><span class="myth-nav-current">The History and Mythology of the Goddess Athena · Now playing</span></li>
+              <li><a href="#/myth/momus">The History and Mythology of the Greek God Momus</a></li>
+              <li><a href="#/myth/medusa">The History and Mythology of the Gorgon Medusa</a></li>
+            </ul>
             <a class="myth-yt-link" href="https://youtu.be/rsElNeZZ1UY" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
           </div>
         </div>
@@ -2996,7 +3061,15 @@
             <h2>The History and Mythology of the Greek God Momus</h2>
             <div class="myth-video">
               <iframe src="https://www.youtube.com/embed/uEeG8jVMjVE" title="The History and Mythology of the Greek God Momus" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <a class="myth-arrow myth-arrow-prev" href="#/myth/athena" aria-label="Previous video: The History and Mythology of the Goddess Athena"><span>‹</span></a>
+              <a class="myth-arrow myth-arrow-next" href="#/myth/medusa" aria-label="Next video: The History and Mythology of the Gorgon Medusa"><span>›</span></a>
             </div>
+            <p class="myth-nav-label">More Myth Videos</p>
+            <ul class="myth-nav-list">
+              <li><a href="#/myth/athena">The History and Mythology of the Goddess Athena</a></li>
+              <li><span class="myth-nav-current">The History and Mythology of the Greek God Momus · Now playing</span></li>
+              <li><a href="#/myth/medusa">The History and Mythology of the Gorgon Medusa</a></li>
+            </ul>
             <a class="myth-yt-link" href="https://youtu.be/uEeG8jVMjVE" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
           </div>
         </div>
@@ -3008,7 +3081,15 @@
             <h2>The History and Mythology of the Gorgon Medusa</h2>
             <div class="myth-video">
               <iframe src="https://www.youtube.com/embed/6D0TFWZ_CaI" title="The History and Mythology of the Gorgon Medusa" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <a class="myth-arrow myth-arrow-prev" href="#/myth/momus" aria-label="Previous video: The History and Mythology of the Greek God Momus"><span>‹</span></a>
+              <a class="myth-arrow myth-arrow-next" href="#/myth/athena" aria-label="Next video: The History and Mythology of the Goddess Athena"><span>›</span></a>
             </div>
+            <p class="myth-nav-label">More Myth Videos</p>
+            <ul class="myth-nav-list">
+              <li><a href="#/myth/athena">The History and Mythology of the Goddess Athena</a></li>
+              <li><a href="#/myth/momus">The History and Mythology of the Greek God Momus</a></li>
+              <li><span class="myth-nav-current">The History and Mythology of the Gorgon Medusa · Now playing</span></li>
+            </ul>
             <a class="myth-yt-link" href="https://youtu.be/6D0TFWZ_CaI" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
           </div>
         </div>
