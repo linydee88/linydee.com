@@ -1032,12 +1032,12 @@
       <a href="#/readings">Order a Tarot</a>
       <a href="#/readings">Types of Readings</a>
       <a href="https://www.google.com/searchviewer/10?output=search&svid=CAwSKRInCgNwdnESIE9oWXdlREE2TUhoak1UVmpOakkwWkdFelpXSXdaR0l6GAo&hl=en&gl=CA" target="_blank" rel="noopener noreferrer">Leave a Review</a>
-      <a href="https://www.buymeacoffee.com/linydee" target="_blank" rel="noopener noreferrer">Buy Me a Coffee</a>
+      <a href="#/coffee">Buy Me a Coffee</a>
       <a href="#/books">Books</a>
       <a href="#/terms">Terms of Service</a>
       <a href="#/faqs">FAQs</a>
       <a href="#/contact">Contact</a>
-      <a href="https://paypal.me/thelyndentree" target="_blank" rel="noopener noreferrer">Tip via PayPal</a>
+      <a href="#/myth">Myth Videos</a>
       <a href="#/library">Liny's Library</a>
     </div>
   </nav>
@@ -2675,7 +2675,7 @@
           <h3>Bhagavad Gita As It Is</h3>
           <p class="lib-author">A.C. Bhaktivedanta Swami Prabhupada</p>
           <p class="lib-blurb">Krishna's timeless counsel to Arjuna on the battlefield of Kurukshetra.</p>
-          <a class="lib-yt-btn" href="https://youtu.be/g-eExnXeXZ0" target="_blank" rel="noopener noreferrer">&#9654; Listen Free on YouTube</a>
+          <a class="lib-yt-btn" href="https://youtu.be/kIqfOtruu0U" target="_blank" rel="noopener noreferrer">&#9654; Listen Free on YouTube</a>
           
         </div>
       </article>
@@ -2733,6 +2733,7 @@
           <h3>The Iliad</h3>
           <p class="lib-author">Homer</p>
           <p class="lib-blurb">The wrath of Achilles and the glory and grief of the Trojan War.</p>
+          <a class="lib-yt-btn" href="https://youtu.be/g-eExnXeXZ0" target="_blank" rel="noopener noreferrer">&#9654; Listen Free on YouTube</a>
           
         </div>
       </article>
@@ -2742,11 +2743,266 @@
           <h3>The Odyssey</h3>
           <p class="lib-author">Homer</p>
           <p class="lib-blurb">Odysseus and his long journey home through monsters, gods, and temptation.</p>
+          <a class="lib-yt-btn" href="https://youtu.be/zAL4ECWSatU" target="_blank" rel="noopener noreferrer">&#9654; Listen Free on YouTube</a>
           
         </div>
       </article>
       </div>
     </div>
+    </section>
+
+    <section class="internal-page page-view" id="page-coffee" hidden aria-labelledby="coffee-title">
+      <header class="page-hero">
+        <p class="eyebrow">Support Liny</p>
+        <h1 id="coffee-title">Buy Me a Coffee</h1>
+        <p>Your support keeps the readings, the research, and the mythology videos coming.</p>
+      </header>
+      <div class="page-content narrow">
+        <p class="intro-copy">Would you like to buy me a coffee or send a tip via PayPal?</p>
+        <p>Every coffee and every tip means the world to me, and it helps keep Liny Dee Tarot going. Thank you for supporting my work.</p>
+        <div style="display: grid; gap: 14px; margin-top: 28px;">
+          <a class="button" href="https://www.buymeacoffee.com/linydee" target="_blank" rel="noopener noreferrer">Buy Me a Coffee</a>
+          <a class="button secondary" href="https://paypal.me/thelyndentree" target="_blank" rel="noopener noreferrer">Tip via PayPal</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="internal-page page-view" id="page-myth" hidden aria-labelledby="myth-title">
+      <style>
+        #page-myth {
+          margin-top: 0 !important;
+          padding-top: 0 !important;
+          --myth-paper: #061c17;
+          --myth-surface: #0b2b22;
+          --myth-ink: #f7efd9;
+          --myth-ink-strong: #fff9e8;
+          --myth-muted: #c6c0aa;
+          --myth-line: rgba(210, 177, 99, .34);
+          --myth-line-bright: rgba(232, 200, 124, .72);
+          --myth-gold: #d7b66c;
+          --myth-gold-strong: #f1d58d;
+          --myth-display: "Cormorant Garamond", Georgia, serif;
+          --myth-body: "Manrope", -apple-system, "Segoe UI", sans-serif;
+          background: var(--myth-paper);
+          color: var(--myth-ink);
+          font-family: var(--myth-body);
+        }
+        #page-myth .myth-listing { padding: 44px 0 60px; }
+        #page-myth .myth-shell { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        #page-myth .myth-cards {
+          display: flex;
+          flex-direction: column;
+          gap: 26px;
+          max-width: 920px;
+          margin: 0 auto;
+          align-items: stretch;
+        }
+        #page-myth .myth-card-btn {
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 26px;
+          width: 100%;
+          padding: 26px;
+          text-align: left;
+          background: linear-gradient(145deg, #0e3327, #0b2b22 42%, #081f18);
+          border: 1px solid rgba(210, 177, 99, .45);
+          border-radius: 16px;
+          box-shadow: 0 26px 70px rgba(0, 10, 7, .34), 0 4px 14px rgba(0, 12, 8, .24);
+          cursor: pointer;
+          font-family: var(--myth-body);
+        }
+        #page-myth .myth-card-btn::after {
+          content: "\2726";
+          position: absolute;
+          top: -11px;
+          left: 50%;
+          transform: translateX(-50%);
+          color: var(--myth-gold);
+          font-size: .8rem;
+          background: #0d2f25;
+          padding: 0 10px;
+        }
+        #page-myth .myth-thumb {
+          display: block;
+          position: relative;
+          flex: 0 0 210px;
+          width: 210px;
+          aspect-ratio: 16 / 9;
+          overflow: hidden;
+          background: #06241c;
+          border: 1px solid rgba(210, 177, 99, .55);
+          border-radius: 12px;
+          box-shadow: 0 16px 34px rgba(0, 0, 0, .3);
+        }
+        #page-myth .myth-thumb img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        #page-myth .myth-body {
+          display: flex;
+          flex: 1;
+          min-width: 0;
+          flex-direction: column;
+          gap: 10px;
+        }
+        #page-myth .myth-title {
+          display: block;
+          font-family: var(--myth-display);
+          color: #fff9e8;
+          font-size: 1.55rem;
+          line-height: 1.2;
+        }
+        #page-myth .myth-cta {
+          display: block;
+          color: var(--myth-gold-strong);
+          font-size: .95rem;
+          font-weight: 600;
+        }
+        #page-myth .myth-detail-wrap {
+          background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(23,69,56,.9) 0%, rgba(6,28,23,1) 70%), #061c17;
+          padding: 40px 0 60px;
+        }
+        #page-myth .myth-detail {
+          display: none;
+          max-width: 760px;
+          margin: 0 auto;
+          padding: 34px 30px 30px;
+          background: linear-gradient(145deg, #0e3327, #0b2b22 42%, #081f18);
+          border: 1px solid var(--myth-line-bright);
+          border-radius: 16px;
+          box-shadow: 0 26px 70px rgba(0, 10, 7, .34), 0 4px 14px rgba(0, 12, 8, .24);
+          position: relative;
+        }
+        #page-myth .myth-detail.active { display: block; }
+        #page-myth .myth-detail h2 {
+          font-family: var(--myth-display);
+          font-weight: 500;
+          font-size: clamp(1.5rem, 4.5vw, 2.1rem);
+          color: #fff9e8;
+          margin: 0 0 18px;
+          line-height: 1.2;
+        }
+        #page-myth .myth-video {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 16 / 9;
+          background: #000;
+          border: 1px solid rgba(210, 177, 99, .55);
+          border-radius: 12px;
+          overflow: hidden;
+          margin-bottom: 18px;
+        }
+        #page-myth .myth-video iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border: 0;
+        }
+        #page-myth .myth-back {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 18px;
+          padding: 0;
+          background: none;
+          border: 0;
+          color: var(--myth-gold);
+          font-size: .76rem;
+          font-weight: 600;
+          letter-spacing: .11em;
+          text-transform: uppercase;
+          cursor: pointer;
+          font-family: var(--myth-body);
+        }
+        #page-myth .myth-back::before { content: "\2190"; font-size: 1rem; }
+        #page-myth .myth-yt-link {
+          color: var(--myth-gold-strong);
+          font-weight: 600;
+          font-size: .95rem;
+        }
+        @media (max-width: 640px) {
+          #page-myth .myth-card-btn { flex-direction: column; align-items: stretch; gap: 18px; }
+          #page-myth .myth-thumb { flex: none; width: 100%; }
+          #page-myth .myth-detail { padding: 26px 18px 24px; }
+        }
+      </style>
+      <header class="page-hero">
+        <p class="eyebrow">Mythology</p>
+        <h1 id="myth-title">Myth Videos</h1>
+        <p>Stories of gods and goddesses, told the way Liny loves to tell them.</p>
+      </header>
+      <div class="myth-listing">
+        <div class="myth-shell">
+          <div class="myth-cards">
+            <article class="myth-card">
+              <button type="button" class="myth-card-btn" onclick="showMythDetail('athena')">
+                <span class="myth-thumb">
+                  <img src="https://i.ytimg.com/vi/rsElNeZZ1UY/hqdefault.jpg" alt="The History and Mythology of the Goddess Athena" loading="lazy" />
+                </span>
+                <span class="myth-body">
+                  <span class="myth-title">The History and Mythology of the Goddess Athena</span>
+                  <span class="myth-cta">Watch the video</span>
+                </span>
+              </button>
+            </article>
+            <article class="myth-card">
+              <button type="button" class="myth-card-btn" onclick="showMythDetail('momus')">
+                <span class="myth-thumb">
+                  <img src="https://i.ytimg.com/vi/uEeG8jVMjVE/hqdefault.jpg" alt="The History and Mythology of the Greek God Momus" loading="lazy" />
+                </span>
+                <span class="myth-body">
+                  <span class="myth-title">The History and Mythology of the Greek God Momus</span>
+                  <span class="myth-cta">Watch the video</span>
+                </span>
+              </button>
+            </article>
+          </div>
+        </div>
+      </div>
+      <div class="myth-detail-wrap" id="myth-detail-wrap-athena" hidden>
+        <div class="myth-shell">
+          <div class="myth-detail active" id="myth-detail-athena">
+            <button type="button" class="myth-back" onclick="hideMythDetail()">Back to Myth Videos</button>
+            <h2>The History and Mythology of the Goddess Athena</h2>
+            <div class="myth-video">
+              <iframe src="https://www.youtube.com/embed/rsElNeZZ1UY" title="The History and Mythology of the Goddess Athena" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <a class="myth-yt-link" href="https://youtu.be/rsElNeZZ1UY" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          </div>
+        </div>
+      </div>
+      <div class="myth-detail-wrap" id="myth-detail-wrap-momus" hidden>
+        <div class="myth-shell">
+          <div class="myth-detail active" id="myth-detail-momus">
+            <button type="button" class="myth-back" onclick="hideMythDetail()">Back to Myth Videos</button>
+            <h2>The History and Mythology of the Greek God Momus</h2>
+            <div class="myth-video">
+              <iframe src="https://www.youtube.com/embed/uEeG8jVMjVE" title="The History and Mythology of the Greek God Momus" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <a class="myth-yt-link" href="https://youtu.be/uEeG8jVMjVE" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          </div>
+        </div>
+      </div>
+      <script>
+        var mythScrollPos = 0;
+        function showMythDetail(key) {
+          mythScrollPos = window.scrollY || window.pageYOffset;
+          window.mythLastTrigger = document.activeElement;
+          location.hash = '#/myth/' + key;
+        }
+        function hideMythDetail() {
+          window.mythReturningFocus = window.mythLastTrigger || null;
+          location.hash = '#/myth';
+          setTimeout(function() { window.scrollTo(0, mythScrollPos); }, 100);
+        }
+      </script>
     </section>
   </main>
 
@@ -2780,6 +3036,10 @@
         'full-terms': { id: 'page-full-terms', title: 'Full Terms of Service · Liny Dee Tarot' },
         books: { id: 'page-books', title: 'Books · Liny Dee Tarot' },
         library: { id: 'page-library', title: 'Liny\'s Library · Liny Dee Tarot' },
+        coffee: { id: 'page-coffee', title: 'Buy Me a Coffee · Liny Dee Tarot' },
+        myth: { id: 'page-myth', title: 'Myth Videos · Liny Dee Tarot' },
+        'myth/athena': { id: 'page-myth', title: 'The History and Mythology of the Goddess Athena · Liny Dee Tarot', detail: 'athena' },
+        'myth/momus': { id: 'page-myth', title: 'The History and Mythology of the Greek God Momus · Liny Dee Tarot', detail: 'momus' },
         'reading/2-question': { id: 'page-readings', title: '2 Question Tarot Reading · Liny Dee Tarot', detail: '2-question' },
         'reading/5-question': { id: 'page-readings', title: '5 Question Tarot Reading · Liny Dee Tarot', detail: '5-question' },
         'reading/full-month': { id: 'page-readings', title: 'Full Month Tarot Reading · Liny Dee Tarot', detail: 'full-month' },
@@ -2818,6 +3078,23 @@
             document.querySelectorAll('#page-readings .rd-detail-wrap').forEach(function(el) { el.hidden = true; });
             var rdListing = document.querySelector('#page-readings .rd-listing');
             if (rdListing) rdListing.style.display = '';
+          }
+        }
+        // Handle myth detail routes
+        if (route.id === 'page-myth') {
+          if (detailKey) {
+            var mythListing = document.querySelector('#page-myth .myth-listing');
+            if (mythListing) mythListing.style.display = 'none';
+            document.querySelectorAll('#page-myth .myth-detail-wrap').forEach(function(el) { el.hidden = true; });
+            var mythWrap = document.getElementById('myth-detail-wrap-' + detailKey);
+            if (mythWrap) {
+              mythWrap.hidden = false;
+              setTimeout(function() { window.scrollTo(0, 0); }, 50);
+            }
+          } else {
+            document.querySelectorAll('#page-myth .myth-detail-wrap').forEach(function(el) { el.hidden = true; });
+            var mythList = document.querySelector('#page-myth .myth-listing');
+            if (mythList) mythList.style.display = '';
           }
         }
         document.title = route.title;
