@@ -2995,49 +2995,9 @@
         <h1 id="myth-title">Myth Videos</h1>
         <p>Stories of gods and goddesses, told the way Liny loves to tell them.</p>
       </header>
-      <div class="myth-listing">
-        <div class="myth-shell">
-          <div class="myth-cards">
-            <article class="myth-card">
-              <button type="button" class="myth-card-btn" onclick="showMythDetail('athena')">
-                <span class="myth-thumb">
-                  <img src="https://i.ytimg.com/vi/rsElNeZZ1UY/hqdefault.jpg" alt="The History and Mythology of the Goddess Athena" loading="lazy" />
-                </span>
-                <span class="myth-body">
-                  <span class="myth-title">The History and Mythology of the Goddess Athena</span>
-                  <span class="myth-cta">Watch the video</span>
-                </span>
-              </button>
-            </article>
-            <article class="myth-card">
-              <button type="button" class="myth-card-btn" onclick="showMythDetail('momus')">
-                <span class="myth-thumb">
-                  <img src="https://i.ytimg.com/vi/uEeG8jVMjVE/hqdefault.jpg" alt="The History and Mythology of the Greek God Momus" loading="lazy" />
-                </span>
-                <span class="myth-body">
-                  <span class="myth-title">The History and Mythology of the Greek God Momus</span>
-                  <span class="myth-cta">Watch the video</span>
-                </span>
-              </button>
-            </article>
-            <article class="myth-card">
-              <button type="button" class="myth-card-btn" onclick="showMythDetail('medusa')">
-                <span class="myth-thumb">
-                  <img src="https://i.ytimg.com/vi/6D0TFWZ_CaI/hqdefault.jpg" alt="The History and Mythology of the Gorgon Medusa" loading="lazy" />
-                </span>
-                <span class="myth-body">
-                  <span class="myth-title">The History and Mythology of the Gorgon Medusa</span>
-                  <span class="myth-cta">Watch the video</span>
-                </span>
-              </button>
-            </article>
-          </div>
-        </div>
-      </div>
       <div class="myth-detail-wrap" id="myth-detail-wrap-athena" hidden>
         <div class="myth-shell">
           <div class="myth-detail active" id="myth-detail-athena">
-            <button type="button" class="myth-back" onclick="hideMythDetail()">Back to Myth Videos</button>
             <h2>The History and Mythology of the Goddess Athena</h2>
             <div class="myth-video">
               <iframe src="https://www.youtube.com/embed/rsElNeZZ1UY" title="The History and Mythology of the Goddess Athena" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -3057,7 +3017,6 @@
       <div class="myth-detail-wrap" id="myth-detail-wrap-momus" hidden>
         <div class="myth-shell">
           <div class="myth-detail active" id="myth-detail-momus">
-            <button type="button" class="myth-back" onclick="hideMythDetail()">Back to Myth Videos</button>
             <h2>The History and Mythology of the Greek God Momus</h2>
             <div class="myth-video">
               <iframe src="https://www.youtube.com/embed/uEeG8jVMjVE" title="The History and Mythology of the Greek God Momus" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -3077,7 +3036,6 @@
       <div class="myth-detail-wrap" id="myth-detail-wrap-medusa" hidden>
         <div class="myth-shell">
           <div class="myth-detail active" id="myth-detail-medusa">
-            <button type="button" class="myth-back" onclick="hideMythDetail()">Back to Myth Videos</button>
             <h2>The History and Mythology of the Gorgon Medusa</h2>
             <div class="myth-video">
               <iframe src="https://www.youtube.com/embed/6D0TFWZ_CaI" title="The History and Mythology of the Gorgon Medusa" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -3094,19 +3052,6 @@
           </div>
         </div>
       </div>
-      <script>
-        var mythScrollPos = 0;
-        function showMythDetail(key) {
-          mythScrollPos = window.scrollY || window.pageYOffset;
-          window.mythLastTrigger = document.activeElement;
-          location.hash = '#/myth/' + key;
-        }
-        function hideMythDetail() {
-          window.mythReturningFocus = window.mythLastTrigger || null;
-          location.hash = '#/myth';
-          setTimeout(function() { window.scrollTo(0, mythScrollPos); }, 100);
-        }
-      </script>
     </section>
   </main>
 
@@ -3187,19 +3132,12 @@
         }
         // Handle myth detail routes
         if (route.id === 'page-myth') {
-          if (detailKey) {
-            var mythListing = document.querySelector('#page-myth .myth-listing');
-            if (mythListing) mythListing.style.display = 'none';
-            document.querySelectorAll('#page-myth .myth-detail-wrap').forEach(function(el) { el.hidden = true; });
-            var mythWrap = document.getElementById('myth-detail-wrap-' + detailKey);
-            if (mythWrap) {
-              mythWrap.hidden = false;
-              setTimeout(function() { window.scrollTo(0, 0); }, 50);
-            }
-          } else {
-            document.querySelectorAll('#page-myth .myth-detail-wrap').forEach(function(el) { el.hidden = true; });
-            var mythList = document.querySelector('#page-myth .myth-listing');
-            if (mythList) mythList.style.display = '';
+          if (!detailKey) detailKey = 'athena';
+          document.querySelectorAll('#page-myth .myth-detail-wrap').forEach(function(el) { el.hidden = true; });
+          var mythWrap = document.getElementById('myth-detail-wrap-' + detailKey);
+          if (mythWrap) {
+            mythWrap.hidden = false;
+            setTimeout(function() { window.scrollTo(0, 0); }, 50);
           }
         }
         document.title = route.title;
